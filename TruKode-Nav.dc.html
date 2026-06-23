@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+ --gold:#d8b478;
+ --gold-strong:color-mix(in oklab, #d8b478, #000 18%);
+ --ink:#15120e;
+ --text-light:#ece7df;
+ --text-light-soft:#b8b0a3;
+}
+.tk-nav-links,.tk-nav-burger{display:flex;}
+.tk-nav-burger{display:none;}
+@keyframes tkNavFade{from{opacity:0;}to{opacity:1;}}
+@keyframes tkNavRise{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
+@media (max-width:880px){
+  .tk-nav-links{display:none !important;}
+  .tk-nav-burger{display:inline-flex !important;}
+  .tk-nav-cta-label-long{display:none;}
+}
+@media (min-width:881px){
+  .tk-nav-cta-label-short{display:none;}
+}
+</style>
+</helmet>
+
+<header class="tk-nav" style="position:sticky;top:0;z-index:50;background:rgba(21,18,14,0.72);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);border-bottom:1px solid rgba(216,180,120,0.13)">
+  <div style="max-width:1160px;margin:0 auto;padding:14px clamp(20px,5vw,56px);display:flex;align-items:center;gap:20px">
+    <a href="TruKode-Landing.dc.html" style="font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:600;letter-spacing:0.01em;color:var(--text-light);text-decoration:none;flex:none;line-height:1">TruKode<span style="color:var(--gold)">.</span></a>
+
+    <nav class="tk-nav-links" style="margin-left:auto;flex:none;align-items:center;gap:clamp(20px,3vw,38px);white-space:nowrap">
+      <a id="tklink-reads" href="TruKode-All-Reads.dc.html" style="font-family:'Hanken Grotesk',sans-serif;font-size:14.5px;font-weight:500;color:var(--text-light-soft);text-decoration:none;letter-spacing:0.005em;transition:color .25s ease" style-hover="color:var(--text-light)">Reads</a>
+      <a id="tklink-how" href="TruKode-How-It-Works.dc.html" style="font-family:'Hanken Grotesk',sans-serif;font-size:14.5px;font-weight:500;color:var(--text-light-soft);text-decoration:none;letter-spacing:0.005em;transition:color .25s ease" style-hover="color:var(--text-light)">How It Works</a>
+      <a id="tklink-about" href="TruKode-About.dc.html" style="font-family:'Hanken Grotesk',sans-serif;font-size:14.5px;font-weight:500;color:var(--text-light-soft);text-decoration:none;letter-spacing:0.005em;transition:color .25s ease" style-hover="color:var(--text-light)">About</a>
+      <a id="tklink-faq" href="TruKode-FAQ.dc.html" style="font-family:'Hanken Grotesk',sans-serif;font-size:14.5px;font-weight:500;color:var(--text-light-soft);text-decoration:none;letter-spacing:0.005em;transition:color .25s ease" style-hover="color:var(--text-light)">FAQ</a>
+    </nav>
+
+    <a href="TruKode-Intake.dc.html" class="tk-nav-cta" style="margin-left:auto;flex:none;display:inline-flex;align-items:center;padding:10px 21px;background:var(--gold);color:#1b1710;font-family:'Hanken Grotesk',sans-serif;font-weight:600;font-size:13px;letter-spacing:0.01em;border-radius:999px;text-decoration:none;white-space:nowrap;transition:transform .3s ease,box-shadow .3s ease" style-hover="transform:translateY(-1px);box-shadow:0 8px 22px rgba(216,180,120,0.3)"><span class="tk-nav-cta-label-long">Start your Read</span><span class="tk-nav-cta-label-short">Start</span></a>
+
+    <button class="tk-nav-burger" onClick="{{ toggle }}" aria-label="Open menu" style="flex:none;width:42px;height:42px;align-items:center;justify-content:center;background:transparent;border:1px solid rgba(216,180,120,0.28);border-radius:11px;cursor:pointer;padding:0">
+      <span style="display:flex;flex-direction:column;gap:5px;width:18px">
+        <span style="height:1.6px;background:var(--text-light);border-radius:2px"></span>
+        <span style="height:1.6px;background:var(--text-light);border-radius:2px"></span>
+        <span style="height:1.6px;background:var(--text-light);border-radius:2px;width:72%"></span>
+      </span>
+    </button>
+  </div>
+</header>
+
+<sc-if value="{{ open }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;inset:0;z-index:90;background:rgba(16,13,9,0.92);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);display:flex;flex-direction:column;animation:tkNavFade .28s ease both">
+    <div style="max-width:1160px;width:100%;margin:0 auto;padding:14px clamp(20px,5vw,56px);display:flex;align-items:center;justify-content:space-between;gap:20px;flex:none">
+      <a href="TruKode-Landing.dc.html" style="font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:600;color:var(--text-light);text-decoration:none;line-height:1">TruKode<span style="color:var(--gold)">.</span></a>
+      <button onClick="{{ close }}" aria-label="Close menu" style="width:42px;height:42px;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:1px solid rgba(216,180,120,0.28);border-radius:11px;cursor:pointer;padding:0">
+        <svg viewBox="0 0 24 24" width="19" height="19" fill="none"><path d="M6 6l12 12M18 6L6 18" style="stroke:var(--text-light)" stroke-width="1.7" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+
+    <nav style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:6px;padding:0 clamp(28px,8vw,56px) 8vh;max-width:760px;width:100%;margin:0 auto">
+      <a onClick="{{ close }}" href="TruKode-All-Reads.dc.html" style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(34px,9vw,52px);line-height:1.18;color:var(--text-light);text-decoration:none;letter-spacing:-0.01em;animation:tkNavRise .4s ease both .04s">Reads</a>
+      <a onClick="{{ close }}" href="TruKode-How-It-Works.dc.html" style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(34px,9vw,52px);line-height:1.18;color:var(--text-light);text-decoration:none;letter-spacing:-0.01em;animation:tkNavRise .4s ease both .1s">How It Works</a>
+      <a onClick="{{ close }}" href="TruKode-About.dc.html" style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(34px,9vw,52px);line-height:1.18;color:var(--text-light);text-decoration:none;letter-spacing:-0.01em;animation:tkNavRise .4s ease both .16s">About</a>
+      <a onClick="{{ close }}" href="TruKode-FAQ.dc.html" style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(34px,9vw,52px);line-height:1.18;color:var(--text-light);text-decoration:none;letter-spacing:-0.01em;animation:tkNavRise .4s ease both .22s">FAQ</a>
+
+      <a onClick="{{ close }}" href="TruKode-Intake.dc.html" style="margin-top:38px;align-self:flex-start;display:inline-flex;align-items:center;padding:15px 30px;background:var(--gold);color:#1b1710;font-family:'Hanken Grotesk',sans-serif;font-weight:600;font-size:15px;border-radius:999px;text-decoration:none;animation:tkNavRise .4s ease both .3s">Start your Read</a>
+    </nav>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1160,&quot;height&quot;:640},&quot;active&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;none&quot;,&quot;reads&quot;,&quot;how&quot;,&quot;about&quot;,&quot;faq&quot;],&quot;default&quot;:&quot;none&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { open: false };
+  toggle = () => this.setState(s => {
+    const open = !s.open;
+    try { document.body.style.overflow = open ? 'hidden' : ''; } catch (e) {}
+    return { open };
+  });
+  close = () => {
+    try { document.body.style.overflow = ''; } catch (e) {}
+    this.setState({ open: false });
+  };
+  applyActive() {
+    const map = { reads: 'tklink-reads', how: 'tklink-how', about: 'tklink-about', faq: 'tklink-faq' };
+    const id = map[this.props.active];
+    if (!id) return;
+    const el = document.getElementById(id);
+    if (el) { el.style.color = 'var(--text-light)'; el.style.fontWeight = '600'; }
+  }
+  componentDidMount() { this.applyActive(); }
+  componentDidUpdate() { this.applyActive(); }
+  componentWillUnmount() { try { document.body.style.overflow = ''; } catch (e) {} }
+  renderVals() {
+    return { open: this.state.open, toggle: this.toggle, close: this.close };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+ --gold:#d8b478;
+ --gold-strong:color-mix(in oklab, #d8b478, #000 18%);
+ --ink:#15120e;
+ --ink-soft:#211c15;
+ --ink-deep:#100d09;
+ --cream:#f6f3ec;
+ --paper:#fffdf8;
+ --text-dark:#2a2620;
+ --text-dark-soft:#6e665a;
+ --text-light:#ece7df;
+ --text-light-soft:#b8b0a3;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{margin:0;background:var(--ink);font-family:'Hanken Grotesk',system-ui,sans-serif;color:var(--text-dark);}
+::selection{background:var(--gold);color:#1b1710;}
+[data-reveal]{opacity:0;transform:translateY(26px);transition:opacity 1.05s cubic-bezier(.2,.7,.2,1),transform 1.05s cubic-bezier(.2,.7,.2,1);}
+[data-reveal].tk-in{opacity:1 !important;transform:none !important;}
+.tk-ans{max-height:0;overflow:hidden;opacity:0;transition:max-height .5s cubic-bezier(.2,.7,.2,1),opacity .4s ease;}
+.tk-faq.tk-open .tk-ans{max-height:520px;opacity:1;}
+.tk-chev{transition:transform .4s cubic-bezier(.2,.7,.2,1);}
+.tk-faq.tk-open .tk-chev{transform:rotate(180deg);}
+@keyframes tkGlow{0%,100%{opacity:.5;transform:translateX(-50%) scale(1);}50%{opacity:.9;transform:translateX(-50%) scale(1.06);}}
+</style>
+</helmet>
+
+<dc-import name="TruKode-Nav" active="faq" hint-size="100%,67px"></dc-import>
+
+<!-- ===================== HERO ===================== -->
+<section style="position:relative;overflow:hidden;background:var(--ink)">
+  <div style="position:absolute;top:-26%;left:50%;width:min(820px,150vw);height:min(820px,150vw);transform:translateX(-50%);background:radial-gradient(circle,rgba(216,180,120,0.15),rgba(216,180,120,0.04) 42%,transparent 64%);animation:tkGlow 10s ease-in-out infinite;pointer-events:none"></div>
+  <div style="position:relative;max-width:760px;margin:0 auto;padding:clamp(76px,12vh,140px) clamp(22px,5vw,56px) clamp(56px,9vh,90px);text-align:center">
+    <div data-reveal style="font-family:'Hanken Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.28em;font-size:11.5px;font-weight:600;color:var(--gold);margin-bottom:26px">Frequently Asked</div>
+    <h1 data-reveal style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(40px,7.6vw,74px);line-height:1.03;letter-spacing:-0.014em;color:var(--text-light);text-wrap:balance">Questions? We've got you.</h1>
+    <p data-reveal style="margin:22px auto 0;max-width:480px;font-size:clamp(15px,2.1vw,18px);line-height:1.65;color:var(--text-light-soft)">Everything you might want to know before you begin — answered plainly, with no pressure.</p>
+  </div>
+</section>
+
+<!-- ===================== ACCORDION ===================== -->
+<section style="background:var(--cream)">
+  <div style="max-width:780px;margin:0 auto;padding:clamp(64px,10vh,120px) clamp(22px,5vw,48px)">
+    <div data-reveal style="display:flex;flex-direction:column;gap:12px">
+
+      <div class="tk-faq" data-faq style="background:var(--paper);border:1px solid rgba(42,38,32,0.1);border-radius:14px;overflow:hidden">
+        <button onClick="{{ toggle }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:24px clamp(20px,4vw,30px);background:none;border:none;cursor:pointer;text-align:left">
+          <span style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(19px,3vw,23px);color:var(--text-dark)">How does TruKode work?</span>
+          <svg class="tk-chev" viewBox="0 0 24 24" width="20" height="20" fill="none" style="flex:none"><path d="M6 9l6 6 6-6" style="stroke:var(--gold-strong)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="tk-ans"><p style="margin:0;padding:0 clamp(20px,4vw,30px) 26px;font-size:15.5px;line-height:1.7;color:var(--text-dark-soft)">Choose a Read, share your details through a calm guided experience, and we decode a personal report from your own data — bringing every dimension of who you are into one cohesive picture.</p></div>
+      </div>
+
+      <div class="tk-faq" data-faq style="background:var(--paper);border:1px solid rgba(42,38,32,0.1);border-radius:14px;overflow:hidden">
+        <button onClick="{{ toggle }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:24px clamp(20px,4vw,30px);background:none;border:none;cursor:pointer;text-align:left">
+          <span style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(19px,3vw,23px);color:var(--text-dark)">What information do you need from me?</span>
+          <svg class="tk-chev" viewBox="0 0 24 24" width="20" height="20" fill="none" style="flex:none"><path d="M6 9l6 6 6-6" style="stroke:var(--gold-strong)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="tk-ans"><p style="margin:0;padding:0 clamp(20px,4vw,30px) 26px;font-size:15.5px;line-height:1.7;color:var(--text-dark-soft)">Your name, date of birth, place of birth, and time of birth. For the Compatibility Read™, we'll also ask for a few details about your partner.</p></div>
+      </div>
+
+      <div class="tk-faq" data-faq style="background:var(--paper);border:1px solid rgba(42,38,32,0.1);border-radius:14px;overflow:hidden">
+        <button onClick="{{ toggle }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:24px clamp(20px,4vw,30px);background:none;border:none;cursor:pointer;text-align:left">
+          <span style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(19px,3vw,23px);color:var(--text-dark)">How is my Read created?</span>
+          <svg class="tk-chev" viewBox="0 0 24 24" width="20" height="20" fill="none" style="flex:none"><path d="M6 9l6 6 6-6" style="stroke:var(--gold-strong)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="tk-ans"><p style="margin:0;padding:0 clamp(20px,4vw,30px) 26px;font-size:15.5px;line-height:1.7;color:var(--text-dark-soft)">Each Read is generated by an advanced intelligence we've carefully trained on the most trusted, time-honored methods — numerology, psychology, archetypes, life-cycle phase, and spiritual insight — combined with precise calculations on your unique data. And every report is personally reviewed before it reaches you.</p></div>
+      </div>
+
+      <div class="tk-faq" data-faq style="background:var(--paper);border:1px solid rgba(42,38,32,0.1);border-radius:14px;overflow:hidden">
+        <button onClick="{{ toggle }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:24px clamp(20px,4vw,30px);background:none;border:none;cursor:pointer;text-align:left">
+          <span style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(19px,3vw,23px);color:var(--text-dark)">Is this therapy or a diagnosis?</span>
+          <svg class="tk-chev" viewBox="0 0 24 24" width="20" height="20" fill="none" style="flex:none"><path d="M6 9l6 6 6-6" style="stroke:var(--gold-strong)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="tk-ans"><p style="margin:0;padding:0 clamp(20px,4vw,30px) 26px;font-size:15.5px;line-height:1.7;color:var(--text-dark-soft)">No. TruKode is not therapy, does not diagnose or treat any condition, and is not a replacement for professional mental health support. It's a personal foundation for understanding yourself more clearly.</p></div>
+      </div>
+
+      <div class="tk-faq" data-faq style="background:var(--paper);border:1px solid rgba(42,38,32,0.1);border-radius:14px;overflow:hidden">
+        <button onClick="{{ toggle }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:24px clamp(20px,4vw,30px);background:none;border:none;cursor:pointer;text-align:left">
+          <span style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(19px,3vw,23px);color:var(--text-dark)">Is this a personality quiz or a "type"?</span>
+          <svg class="tk-chev" viewBox="0 0 24 24" width="20" height="20" fill="none" style="flex:none"><path d="M6 9l6 6 6-6" style="stroke:var(--gold-strong)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="tk-ans"><p style="margin:0;padding:0 clamp(20px,4vw,30px) 26px;font-size:15.5px;line-height:1.7;color:var(--text-dark-soft)">No. You won't be placed in a box or reduced to a type. Every Read is built entirely from your own unique data — no two are ever the same.</p></div>
+      </div>
+
+      <div class="tk-faq" data-faq style="background:var(--paper);border:1px solid rgba(42,38,32,0.1);border-radius:14px;overflow:hidden">
+        <button onClick="{{ toggle }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:24px clamp(20px,4vw,30px);background:none;border:none;cursor:pointer;text-align:left">
+          <span style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(19px,3vw,23px);color:var(--text-dark)">How accurate is it, and what should I expect?</span>
+          <svg class="tk-chev" viewBox="0 0 24 24" width="20" height="20" fill="none" style="flex:none"><path d="M6 9l6 6 6-6" style="stroke:var(--gold-strong)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="tk-ans"><p style="margin:0;padding:0 clamp(20px,4vw,30px) 26px;font-size:15.5px;line-height:1.7;color:var(--text-dark-soft)">Expect a meaningful, deeply personal foundation — written in possibilities and tendencies, not absolutes. It's a place to begin and return to, not a quick fix or a final destination.</p></div>
+      </div>
+
+      <div class="tk-faq" data-faq style="background:var(--paper);border:1px solid rgba(42,38,32,0.1);border-radius:14px;overflow:hidden">
+        <button onClick="{{ toggle }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:24px clamp(20px,4vw,30px);background:none;border:none;cursor:pointer;text-align:left">
+          <span style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(19px,3vw,23px);color:var(--text-dark)">How do I receive my Read?</span>
+          <svg class="tk-chev" viewBox="0 0 24 24" width="20" height="20" fill="none" style="flex:none"><path d="M6 9l6 6 6-6" style="stroke:var(--gold-strong)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="tk-ans"><p style="margin:0;padding:0 clamp(20px,4vw,30px) 26px;font-size:15.5px;line-height:1.7;color:var(--text-dark-soft)">Instantly, as a beautifully formatted PDF you can download right away — with a copy emailed to you, so it's always within reach.</p></div>
+      </div>
+
+      <div class="tk-faq" data-faq style="background:var(--paper);border:1px solid rgba(42,38,32,0.1);border-radius:14px;overflow:hidden">
+        <button onClick="{{ toggle }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:24px clamp(20px,4vw,30px);background:none;border:none;cursor:pointer;text-align:left">
+          <span style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(19px,3vw,23px);color:var(--text-dark)">How long does it take?</span>
+          <svg class="tk-chev" viewBox="0 0 24 24" width="20" height="20" fill="none" style="flex:none"><path d="M6 9l6 6 6-6" style="stroke:var(--gold-strong)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="tk-ans"><p style="margin:0;padding:0 clamp(20px,4vw,30px) 26px;font-size:15.5px;line-height:1.7;color:var(--text-dark-soft)">The guided intake takes just a few minutes, and your report is ready right away. There's no waiting period.</p></div>
+      </div>
+
+      <div class="tk-faq" data-faq style="background:var(--paper);border:1px solid rgba(42,38,32,0.1);border-radius:14px;overflow:hidden">
+        <button onClick="{{ toggle }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:24px clamp(20px,4vw,30px);background:none;border:none;cursor:pointer;text-align:left">
+          <span style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(19px,3vw,23px);color:var(--text-dark)">Is my personal data private and safe?</span>
+          <svg class="tk-chev" viewBox="0 0 24 24" width="20" height="20" fill="none" style="flex:none"><path d="M6 9l6 6 6-6" style="stroke:var(--gold-strong)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="tk-ans"><p style="margin:0;padding:0 clamp(20px,4vw,30px) 26px;font-size:15.5px;line-height:1.7;color:var(--text-dark-soft)">Yes. The details you share are handled with care and used only to create your personal report — nothing more.</p></div>
+      </div>
+
+      <div class="tk-faq" data-faq style="background:var(--paper);border:1px solid rgba(42,38,32,0.1);border-radius:14px;overflow:hidden">
+        <button onClick="{{ toggle }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:24px clamp(20px,4vw,30px);background:none;border:none;cursor:pointer;text-align:left">
+          <span style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(19px,3vw,23px);color:var(--text-dark)">Can I get more than one Read?</span>
+          <svg class="tk-chev" viewBox="0 0 24 24" width="20" height="20" fill="none" style="flex:none"><path d="M6 9l6 6 6-6" style="stroke:var(--gold-strong)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="tk-ans"><p style="margin:0;padding:0 clamp(20px,4vw,30px) 26px;font-size:15.5px;line-height:1.7;color:var(--text-dark-soft)">Absolutely. Each Read explores a different dimension of who you are. Many people start with the Personal Read™ as their foundation, then explore others over time.</p></div>
+      </div>
+
+      <div class="tk-faq" data-faq style="background:var(--paper);border:1px solid rgba(42,38,32,0.1);border-radius:14px;overflow:hidden">
+        <button onClick="{{ toggle }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:24px clamp(20px,4vw,30px);background:none;border:none;cursor:pointer;text-align:left">
+          <span style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(19px,3vw,23px);color:var(--text-dark)">Do you offer refunds?</span>
+          <svg class="tk-chev" viewBox="0 0 24 24" width="20" height="20" fill="none" style="flex:none"><path d="M6 9l6 6 6-6" style="stroke:var(--gold-strong)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="tk-ans"><p style="margin:0;padding:0 clamp(20px,4vw,30px) 26px;font-size:15.5px;line-height:1.7;color:var(--text-dark-soft)">Because each Read is personally generated for you, we handle refund requests thoughtfully and case by case — just reach out, and we'll make it right. <em>(Full policy coming soon.)</em></p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WHAT TRUKODE IS NOT ===================== -->
+<section style="background:var(--ink)">
+  <div style="max-width:980px;margin:0 auto;padding:clamp(72px,12vh,150px) clamp(22px,5vw,56px)">
+    <div data-reveal style="text-align:center;max-width:600px;margin:0 auto clamp(44px,7vh,72px)">
+      <div style="font-family:'Hanken Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.26em;font-size:11.5px;font-weight:600;color:var(--gold);margin-bottom:22px">Clarity, Not Labels</div>
+      <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(31px,5.4vw,54px);line-height:1.06;letter-spacing:-0.012em;color:var(--text-light)">What TruKode is not.</h2>
+    </div>
+    <div data-reveal style="display:grid;grid-template-columns:repeat(auto-fit,minmax(248px,1fr));gap:16px">
+      <div style="padding:28px;border:1px solid rgba(216,180,120,0.16);border-radius:14px;background:rgba(216,180,120,0.03)"><h3 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:22px;color:var(--gold)">Not therapy</h3><p style="margin:9px 0 0;font-size:14.5px;line-height:1.6;color:var(--text-light-soft)">A companion for self-understanding — alongside professional care, never instead of it.</p></div>
+      <div style="padding:28px;border:1px solid rgba(216,180,120,0.16);border-radius:14px;background:rgba(216,180,120,0.03)"><h3 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:22px;color:var(--gold)">Not generic</h3><p style="margin:9px 0 0;font-size:14.5px;line-height:1.6;color:var(--text-light-soft)">Every report is built from your own data. Yours alone — no two are the same.</p></div>
+      <div style="padding:28px;border:1px solid rgba(216,180,120,0.16);border-radius:14px;background:rgba(216,180,120,0.03)"><h3 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:22px;color:var(--gold)">Not a personality quiz</h3><p style="margin:9px 0 0;font-size:14.5px;line-height:1.6;color:var(--text-light-soft)">No types and no boxes — just the full, particular picture of you.</p></div>
+      <div style="padding:28px;border:1px solid rgba(216,180,120,0.16);border-radius:14px;background:rgba(216,180,120,0.03)"><h3 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:22px;color:var(--gold)">Not a quick fix</h3><p style="margin:9px 0 0;font-size:14.5px;line-height:1.6;color:var(--text-light-soft)">A foundation to return to — one that deepens as you do.</p></div>
+      <div style="padding:28px;border:1px solid rgba(216,180,120,0.16);border-radius:14px;background:rgba(216,180,120,0.03);grid-column:1 / -1"><h3 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:22px;color:var(--gold)">Not here to tell you who to be</h3><p style="margin:9px 0 0;font-size:14.5px;line-height:1.6;color:var(--text-light-soft)">We're here to help you see who you already are — clearly, and with confidence.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== STILL HAVE QUESTIONS ===================== -->
+<section style="background:var(--cream)">
+  <div style="max-width:680px;margin:0 auto;padding:clamp(64px,10vh,120px) clamp(22px,5vw,56px);text-align:center">
+    <div data-reveal style="font-family:'Hanken Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.26em;font-size:11.5px;font-weight:600;color:var(--gold-strong);margin-bottom:20px">Still curious?</div>
+    <h2 data-reveal style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(28px,4.8vw,46px);line-height:1.08;letter-spacing:-0.012em;color:var(--text-dark);text-wrap:balance">Still have a question? We'd love to hear it.</h2>
+    <p data-reveal style="margin:18px auto 0;max-width:440px;font-size:clamp(15px,2vw,17px);line-height:1.65;color:var(--text-dark-soft)">Reach out any time — a real person will get back to you, warmly and without pressure.</p>
+    <a data-reveal href="mailto:hello@trukode.com" style="display:inline-flex;align-items:center;justify-content:center;margin-top:30px;padding:15px 30px;background:transparent;color:var(--text-dark);font-family:'Hanken Grotesk',sans-serif;font-weight:600;font-size:15px;border:1px solid rgba(42,38,32,0.25);border-radius:999px;text-decoration:none;transition:border-color .3s ease,color .3s ease" style-hover="border-color:var(--gold-strong);color:var(--gold-strong)">Contact us</a>
+  </div>
+</section>
+
+<!-- ===================== CLOSING CTA ===================== -->
+<section style="position:relative;overflow:hidden;background:var(--ink)">
+  <div style="position:absolute;bottom:-40%;left:50%;width:min(820px,150vw);height:min(820px,150vw);transform:translateX(-50%);background:radial-gradient(circle,rgba(216,180,120,0.16),rgba(216,180,120,0.05) 40%,transparent 64%);animation:tkGlow 11s ease-in-out infinite;pointer-events:none"></div>
+  <div style="position:relative;max-width:760px;margin:0 auto;padding:clamp(90px,15vh,180px) clamp(22px,5vw,56px);text-align:center">
+    <p data-reveal style="margin:0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(18px,2.6vw,22px);color:var(--gold)">You've just been decoded.</p>
+    <h2 data-reveal style="margin:18px 0 0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(34px,6.2vw,64px);line-height:1.05;letter-spacing:-0.012em;color:var(--text-light);text-wrap:balance">No more questions? Begin.</h2>
+    <div data-reveal style="display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:40px">
+      <a href="TruKode-All-Reads.dc.html" style="display:inline-flex;align-items:center;justify-content:center;padding:17px 36px;background:var(--gold);color:#1b1710;font-family:'Hanken Grotesk',sans-serif;font-weight:600;font-size:16px;border-radius:999px;text-decoration:none;transition:transform .3s ease,box-shadow .3s ease" style-hover="transform:translateY(-2px);box-shadow:0 14px 38px rgba(216,180,120,0.34)">Choose your Read</a>
+      <span style="font-size:14px;color:var(--text-light-soft)">Most begin with the Personal Read™ — $29</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer style="background:var(--ink-deep);border-top:1px solid rgba(216,180,120,0.1)">
+  <div style="max-width:1160px;margin:0 auto;padding:clamp(56px,8vh,84px) clamp(22px,5vw,56px) 40px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:36px 28px">
+      <div style="grid-column:1 / -1;max-width:340px">
+        <a href="TruKode-Landing.dc.html" style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--text-light);text-decoration:none">TruKode<span style="color:var(--gold)">.</span></a>
+        <p style="margin:14px 0 0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;line-height:1.4;color:var(--text-light-soft)">You came into this world without a manual. Consider this yours.</p>
+      </div>
+      <div>
+        <div style="font-family:'Hanken Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.16em;font-size:11px;font-weight:600;color:var(--gold);margin-bottom:16px">The Reads</div>
+        <div style="display:flex;flex-direction:column;gap:11px"><a href="TruKode-Product-Personal-Read.dc.html" style="font-size:14px;color:var(--text-light-soft);text-decoration:none;transition:color .25s ease" style-hover="color:var(--gold)">Personal Read™</a><a href="TruKode-Product-Personal-Read.dc.html" style="font-size:14px;color:var(--text-light-soft);text-decoration:none;transition:color .25s ease" style-hover="color:var(--gold)">Compatibility Read™</a><a href="TruKode-Product-Personal-Read.dc.html" style="font-size:14px;color:var(--text-light-soft);text-decoration:none;transition:color .25s ease" style-hover="color:var(--gold)">Life Purpose Read™</a><a href="TruKode-Product-Personal-Read.dc.html" style="font-size:14px;color:var(--text-light-soft);text-decoration:none;transition:color .25s ease" style-hover="color:var(--gold)">Roadblock Read™</a><a href="TruKode-Product-Personal-Read.dc.html" style="font-size:14px;color:var(--text-light-soft);text-decoration:none;transition:color .25s ease" style-hover="color:var(--gold)">Career / Business Read™</a></div>
+      </div>
+      <div>
+        <div style="font-family:'Hanken Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.16em;font-size:11px;font-weight:600;color:var(--gold);margin-bottom:16px">Explore</div>
+        <div style="display:flex;flex-direction:column;gap:11px"><a href="TruKode-How-It-Works.dc.html" style="font-size:14px;color:var(--text-light-soft);text-decoration:none;transition:color .25s ease" style-hover="color:var(--gold)">How it works</a><a href="TruKode-Landing.dc.html#who" style="font-size:14px;color:var(--text-light-soft);text-decoration:none;transition:color .25s ease" style-hover="color:var(--gold)">Who it's for</a><a href="TruKode-About.dc.html" style="font-size:14px;color:var(--text-light-soft);text-decoration:none;transition:color .25s ease" style-hover="color:var(--gold)">The Manifesto</a><a href="TruKode-FAQ.dc.html" style="font-size:14px;color:var(--text-light-soft);text-decoration:none;transition:color .25s ease" style-hover="color:var(--gold)">FAQ</a></div>
+      </div>
+      <div>
+        <div style="font-family:'Hanken Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.16em;font-size:11px;font-weight:600;color:var(--gold);margin-bottom:16px">Company</div>
+        <div style="display:flex;flex-direction:column;gap:11px"><a href="mailto:hello@trukode.com" style="font-size:14px;color:var(--text-light-soft);text-decoration:none;transition:color .25s ease" style-hover="color:var(--gold)">Contact</a><a href="TruKode-FAQ.dc.html" style="font-size:14px;color:var(--text-light-soft);text-decoration:none;transition:color .25s ease" style-hover="color:var(--gold)">FAQ</a></div>
+      </div>
+    </div>
+    <div style="margin-top:48px;padding-top:26px;border-top:1px solid rgba(216,180,120,0.1);display:flex;flex-wrap:wrap;gap:14px 28px;justify-content:space-between;align-items:center">
+      <span style="font-size:12.5px;color:var(--text-light-soft)">© 2026 TruKode · Human Decode™ · The Blueprint System™</span>
+      <span style="font-family:'Hanken Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.16em;font-size:10px;color:rgba(184,176,163,0.7)">Made for becoming fully human</span>
+    </div>
+    <p style="margin:22px 0 0;max-width:720px;font-size:12px;line-height:1.6;color:rgba(184,176,163,0.65)">TruKode offers tools for self-reflection and personal development. It is not therapy, medical or psychological diagnosis, or professional advice, and is not intended to diagnose, treat, or replace the care of a qualified professional.</p>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#d8b478&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;reveals&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  applyAccent() {
+    const a = this.props.accent;
+    if (a) document.documentElement.style.setProperty('--gold', a);
+  }
+  toggle = (e) => {
+    const row = e.currentTarget.closest('[data-faq]');
+    if (row) row.classList.toggle('tk-open');
+  };
+  componentDidMount() {
+    this.applyAccent();
+    const els = Array.from(document.querySelectorAll('[data-reveal]'));
+    const show = el => { el.classList.add('tk-in'); };
+    if (this.props.reveals === false) { els.forEach(show); return; }
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { show(e.target); io.unobserve(e.target); } });
+      }, { threshold: 0.08, rootMargin: '0px 0px -6% 0px' });
+      els.forEach(el => io.observe(el));
+      els.slice(0, 3).forEach((el, i) => setTimeout(() => show(el), 130 + i * 140));
+      this._io = io;
+    } else {
+      els.forEach(show);
+    }
+    this._fb = setTimeout(() => els.forEach(show), 2200);
+  }
+  componentDidUpdate() { this.applyAccent(); }
+  componentWillUnmount() { clearTimeout(this._fb); if (this._io) this._io.disconnect(); }
+  renderVals() { this.applyAccent(); return { toggle: this.toggle }; }
+}
+</script>
+</body>
+</html>

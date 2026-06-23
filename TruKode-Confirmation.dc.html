@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+ --gold:#d8b478;
+ --gold-strong:color-mix(in oklab, #d8b478, #000 18%);
+ --ink:#15120e;
+ --ink-soft:#211c15;
+ --ink-deep:#100d09;
+ --cream:#f6f3ec;
+ --paper:#fffdf8;
+ --text-dark:#2a2620;
+ --text-dark-soft:#6e665a;
+ --text-light:#ece7df;
+ --text-light-soft:#b8b0a3;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{margin:0;background:var(--ink);font-family:'Hanken Grotesk',system-ui,sans-serif;color:var(--text-dark);}
+::selection{background:var(--gold);color:#1b1710;}
+[data-reveal]{opacity:0;transform:translateY(26px);transition:opacity 1.05s cubic-bezier(.2,.7,.2,1),transform 1.05s cubic-bezier(.2,.7,.2,1);}
+[data-reveal].tk-in{opacity:1 !important;transform:none !important;}
+@keyframes tkGlow{0%,100%{opacity:.55;transform:translateX(-50%) scale(1);}50%{opacity:1;transform:translateX(-50%) scale(1.07);}}
+@keyframes tkRise{from{opacity:0;transform:translateY(16px) scale(.98);}to{opacity:1;transform:none;}}
+@keyframes tkFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+</style>
+</helmet>
+
+<dc-import name="TruKode-Nav" active="none" hint-size="100%,67px"></dc-import>
+
+<!-- ===================== REVEAL + DOWNLOAD ===================== -->
+<section style="position:relative;overflow:hidden;background:var(--ink)">
+  <div style="position:absolute;top:-12%;left:50%;width:min(900px,150vw);height:min(900px,150vw);transform:translateX(-50%);background:radial-gradient(circle,rgba(216,180,120,0.22),rgba(216,180,120,0.06) 40%,transparent 62%);animation:tkGlow 8s ease-in-out infinite;pointer-events:none"></div>
+  <div style="position:relative;max-width:760px;margin:0 auto;padding:clamp(64px,11vh,120px) clamp(22px,5vw,56px) clamp(72px,12vh,130px);text-align:center">
+    <div data-reveal style="display:inline-flex;align-items:center;gap:9px;font-family:'Hanken Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.26em;font-size:11px;font-weight:600;color:var(--gold);margin-bottom:30px"><span style="width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 14px rgba(216,180,120,0.8)"></span>The decoding is complete</div>
+    <h1 data-reveal style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(38px,7.6vw,74px);line-height:1.04;letter-spacing:-0.014em;color:var(--text-light);text-wrap:balance">Maya, your blueprint has been decoded.</h1>
+    <p data-reveal style="margin:24px 0 0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(20px,3.2vw,26px);color:var(--text-light-soft)">You've just been decoded.</p>
+
+    <!-- DOWNLOAD CARD -->
+    <div data-reveal style="margin-top:clamp(44px,7vh,72px);display:flex;flex-direction:column;align-items:center;gap:28px">
+      <div style="position:relative;width:min(220px,62vw);aspect-ratio:3/4;border-radius:8px;border:1px solid rgba(216,180,120,0.4);background:linear-gradient(160deg,#231d15,#13100c);box-shadow:0 30px 70px rgba(0,0,0,0.55),0 0 50px rgba(216,180,120,0.18);padding:26px 24px;display:flex;flex-direction:column;animation:tkFloat 6s ease-in-out infinite">
+        <div style="font-family:'Hanken Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.22em;font-size:8.5px;font-weight:600;color:var(--gold)">Human Decode™</div>
+        <div style="flex:1;display:flex;flex-direction:column;justify-content:center">
+          <div style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:26px;line-height:1.05;color:var(--text-light)">Personal<br>Read™</div>
+          <div style="width:32px;height:1px;background:var(--gold);margin:16px 0"></div>
+          <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:var(--text-light-soft)">For Maya</div>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;font-family:'Hanken Grotesk',sans-serif;font-size:8.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-light-soft)"><span>The Blueprint System™</span><span>PDF</span></div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;align-items:center;gap:14px">
+        <a href="#" onclick="event.preventDefault();alert('Your Read will be delivered via email.');" style="display:inline-flex;align-items:center;justify-content:center;gap:11px;padding:17px 36px;background:var(--gold);color:#1b1710;font-family:'Hanken Grotesk',sans-serif;font-weight:600;font-size:16px;border-radius:999px;text-decoration:none;transition:transform .3s ease,box-shadow .3s ease" style-hover="transform:translateY(-2px);box-shadow:0 14px 40px rgba(216,180,120,0.36)"><svg viewBox="0 0 24 24" width="19" height="19" fill="none"><path d="M12 3v12" stroke="#1b1710" stroke-width="2" stroke-linecap="round"/><path d="M7 11l5 5 5-5" stroke="#1b1710" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 20h14" stroke="#1b1710" stroke-width="2" stroke-linecap="round"/></svg>Download your Personal Read</a>
+        <span style="display:inline-flex;align-items:center;gap:8px;font-size:13.5px;color:var(--text-light-soft)"><span style="width:6px;height:6px;border-radius:50%;background:var(--gold)"></span>Ready now · 2-page PDF · no waiting</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== RECEIPT + WHAT'S NEXT ===================== -->
+<section style="background:var(--cream)">
+  <div style="max-width:900px;margin:0 auto;padding:clamp(56px,9vh,90px) clamp(22px,5vw,56px)">
+
+    <!-- RECEIPT STRIP -->
+    <div data-reveal style="display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px;padding:18px 24px;background:var(--paper);border:1px solid rgba(42,38,32,0.1);border-radius:12px">
+      <div style="display:flex;align-items:center;gap:10px"><span style="width:7px;height:7px;border-radius:50%;background:var(--gold-strong)"></span><span style="font-size:13.5px;color:var(--text-dark);font-weight:500">Personal Read™</span></div>
+      <span style="width:1px;height:16px;background:rgba(42,38,32,0.15)"></span>
+      <span style="font-size:13.5px;color:var(--text-dark-soft)">June 22, 2026</span>
+      <span style="width:1px;height:16px;background:rgba(42,38,32,0.15)"></span>
+      <span style="font-size:13.5px;color:var(--text-dark-soft)">A copy is on its way to your inbox</span>
+    </div>
+
+    <!-- WHAT'S NEXT -->
+    <div data-reveal style="margin-top:clamp(48px,8vh,80px);text-align:center;max-width:600px;margin-left:auto;margin-right:auto">
+      <div style="font-family:'Hanken Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.26em;font-size:11.5px;font-weight:600;color:var(--gold-strong);margin-bottom:22px">Getting the most from it</div>
+      <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(28px,5vw,48px);line-height:1.08;letter-spacing:-0.012em;color:var(--text-dark);text-wrap:balance">Find a quiet moment. Read it slowly.</h2>
+      <p style="margin:20px 0 0;font-size:clamp(15px,2vw,17px);line-height:1.65;color:var(--text-dark-soft)">Your Read isn't meant to be skimmed once and filed away. It's a foundation to return to — as you grow, as life shifts, as new questions arrive. This is a beginning, not a finish line.</p>
+    </div>
+
+    <div data-reveal style="margin-top:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px">
+      <div style="padding:24px;background:var(--paper);border:1px solid rgba(42,38,32,0.08);border-radius:10px;text-align:center"><div style="font-family:'Cormorant Garamond',serif;font-size:30px;color:var(--gold)">01</div><p style="margin:8px 0 0;font-size:14.5px;line-height:1.55;color:var(--text-dark-soft)">Set aside ten unhurried minutes, somewhere calm.</p></div>
+      <div style="padding:24px;background:var(--paper);border:1px solid rgba(42,38,32,0.08);border-radius:10px;text-align:center"><div style="font-family:'Cormorant Garamond',serif;font-size:30px;color:var(--gold)">02</div><p style="margin:8px 0 0;font-size:14.5px;line-height:1.55;color:var(--text-dark-soft)">Notice what resonates — and what gently surprises you.</p></div>
+      <div style="padding:24px;background:var(--paper);border:1px solid rgba(42,38,32,0.08);border-radius:10px;text-align:center"><div style="font-family:'Cormorant Garamond',serif;font-size:30px;color:var(--gold)">03</div><p style="margin:8px 0 0;font-size:14.5px;line-height:1.55;color:var(--text-dark-soft)">Return to your North Star whenever the path feels unclear.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== EXPLORE ANOTHER READ ===================== -->
+<section style="background:var(--paper)">
+  <div style="max-width:920px;margin:0 auto;padding:clamp(64px,10vh,120px) clamp(22px,5vw,56px)">
+    <div data-reveal style="font-family:'Hanken Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.26em;font-size:11.5px;font-weight:600;color:var(--gold-strong);margin-bottom:26px;text-align:center">Continue the Journey</div>
+    <div data-reveal style="display:flex;flex-wrap:wrap;align-items:center;gap:clamp(24px,4vw,44px);padding:clamp(28px,4vw,44px);background:var(--cream);border:1px solid rgba(42,38,32,0.1);border-radius:14px">
+      <div style="flex:1 1 280px">
+        <div style="font-family:'Hanken Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.14em;font-size:10.5px;color:var(--gold-strong);margin-bottom:10px">The natural next step</div>
+        <h3 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(27px,4.2vw,38px);line-height:1.05;color:var(--text-dark)">Life Purpose Read™</h3>
+        <p style="margin:12px 0 0;font-size:15.5px;line-height:1.6;color:var(--text-dark-soft);max-width:420px">Now that you know who you are at your core, discover where it's all pointing — your soul direction and the mission beneath your days.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-start;gap:16px">
+        <span style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:34px;color:var(--gold-strong)">$49</span>
+        <a href="TruKode-Product-Personal-Read.dc.html" style="display:inline-flex;align-items:center;justify-content:center;padding:14px 26px;background:transparent;color:var(--text-dark);font-family:'Hanken Grotesk',sans-serif;font-weight:600;font-size:14.5px;border:1px solid rgba(42,38,32,0.25);border-radius:999px;text-decoration:none;white-space:nowrap;transition:border-color .3s ease,color .3s ease" style-hover="border-color:var(--gold-strong);color:var(--gold-strong)">Explore this Read →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== BOUNDARY (LIGHT TOUCH) ===================== -->
+<section style="background:var(--cream)">
+  <div style="max-width:680px;margin:0 auto;padding:clamp(48px,7vh,80px) clamp(22px,5vw,56px);text-align:center">
+    <p data-reveal style="margin:0;font-size:clamp(15px,2vw,17px);line-height:1.7;color:var(--text-dark-soft)">A gentle reminder: your Read is a <span style="color:var(--gold-strong);font-weight:500">personal foundation</span> built from your own data — a mirror for reflection, not therapy, diagnosis, or a quick fix. Take what resonates, and let it grow with you.</p>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer style="background:var(--ink-deep);border-top:1px solid rgba(216,180,120,0.1)">
+  <div style="max-width:1160px;margin:0 auto;padding:clamp(56px,8vh,84px) clamp(22px,5vw,56px) 40px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:36px 28px">
+      <div style="grid-column:1 / -1;max-width:340px">
+        <a href="TruKode-Landing.dc.html" style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--text-light);text-decoration:none">TruKode<span style="color:var(--gold)">.</span></a>
+        <p style="margin:14px 0 0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;line-height:1.4;color:var(--text-light-soft)">You came into this world without a manual. Consider this yours.</p>
+      </div>
+      <div>
+        <div style="font-family:'Hanken Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.16em;font-size:11px;font-weight:600;color:var(--gold);margin-bottom:16px">The Reads</div>
+        <div style="display:flex;flex-direction:column;gap:11px"><a href="TruKode-Product-Personal-Read.dc.html" style="font-size:14px;color:var(--text-light-soft);text-decoration:none;transition:color .25s ease" style-hover="color:var(--gold)">Personal Read™</a><a href="TruKode-Product-Personal-Read.dc.html" style="font-size:14px;color:var(--text-light-soft);text-decoration:none;transition:color .25s ease" style-hover="color:var(--gold)">Compatibility Read™</a><a href="TruKode-Product-Personal-Read.dc.html" style="font-size:14px;color:var(--text-light-soft);text-decoration:none;transition:color .25s ease" style-hover="color:var(--gold)">Life Purpose Read™</a><a href="TruKode-Product-Personal-Read.dc.html" style="font-size:14px;color:var(--text-light-soft);text-decoration:none;transition:color .25s ease" style-hover="color:var(--gold)">Roadblock Read™</a><a href="TruKode-Product-Personal-Read.dc.html" style="font-size:14px;color:var(--text-light-soft);text-decoration:none;transition:color .25s ease" style-hover="color:var(--gold)">Career / Business Read™</a></div>
+      </div>
+      <div>
+        <div style="font-family:'Hanken Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.16em;font-size:11px;font-weight:600;color:var(--gold);margin-bottom:16px">Explore</div>
+        <div style="display:flex;flex-direction:column;gap:11px"><a href="TruKode-Landing.dc.html#how" style="font-size:14px;color:var(--text-light-soft);text-decoration:none;transition:color .25s ease" style-hover="color:var(--gold)">How it works</a><a href="TruKode-Landing.dc.html#who" style="font-size:14px;color:var(--text-light-soft);text-decoration:none;transition:color .25s ease" style-hover="color:var(--gold)">Who it's for</a><a href="TruKode-About.dc.html" style="font-size:14px;color:var(--text-light-soft);text-decoration:none;transition:color .25s ease" style-hover="color:var(--gold)">The Manifesto</a></div>
+      </div>
+      <div>
+        <div style="font-family:'Hanken Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.16em;font-size:11px;font-weight:600;color:var(--gold);margin-bottom:16px">Company</div>
+        <div style="display:flex;flex-direction:column;gap:11px"><a href="mailto:hello@trukode.com" style="font-size:14px;color:var(--text-light-soft);text-decoration:none;transition:color .25s ease" style-hover="color:var(--gold)">Contact</a><a href="TruKode-FAQ.dc.html" style="font-size:14px;color:var(--text-light-soft);text-decoration:none;transition:color .25s ease" style-hover="color:var(--gold)">FAQ</a></div>
+      </div>
+    </div>
+    <div style="margin-top:48px;padding-top:26px;border-top:1px solid rgba(216,180,120,0.1);display:flex;flex-wrap:wrap;gap:14px 28px;justify-content:space-between;align-items:center">
+      <span style="font-size:12.5px;color:var(--text-light-soft)">© 2026 TruKode · Human Decode™ · The Blueprint System™</span>
+      <span style="font-family:'Hanken Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.16em;font-size:10px;color:rgba(184,176,163,0.7)">Made for becoming fully human</span>
+    </div>
+    <p style="margin:22px 0 0;max-width:720px;font-size:12px;line-height:1.6;color:rgba(184,176,163,0.65)">TruKode offers tools for self-reflection and personal development. It is not therapy, medical or psychological diagnosis, or professional advice, and is not intended to diagnose, treat, or replace the care of a qualified professional.</p>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#d8b478&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;reveals&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  applyAccent() {
+    const a = this.props.accent;
+    if (a) document.documentElement.style.setProperty('--gold', a);
+  }
+  componentDidMount() {
+    this.applyAccent();
+    const els = Array.from(document.querySelectorAll('[data-reveal]'));
+    const show = el => { el.classList.add('tk-in'); };
+    if (this.props.reveals === false) { els.forEach(show); return; }
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { show(e.target); io.unobserve(e.target); } });
+      }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+      els.forEach(el => io.observe(el));
+      els.slice(0, 5).forEach((el, i) => setTimeout(() => show(el), 140 + i * 150));
+      this._io = io;
+    } else {
+      els.forEach(show);
+    }
+    this._fb = setTimeout(() => els.forEach(show), 2200);
+  }
+  componentDidUpdate() { this.applyAccent(); }
+  componentWillUnmount() { clearTimeout(this._fb); if (this._io) this._io.disconnect(); }
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

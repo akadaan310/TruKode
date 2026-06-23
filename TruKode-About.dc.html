@@ -1,0 +1,220 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+ --gold:#d8b478;
+ --gold-strong:color-mix(in oklab, #d8b478, #000 18%);
+ --ink:#15120e;
+ --ink-soft:#211c15;
+ --ink-deep:#100d09;
+ --cream:#f6f3ec;
+ --paper:#fffdf8;
+ --text-dark:#2a2620;
+ --text-dark-soft:#6e665a;
+ --text-light:#ece7df;
+ --text-light-soft:#b8b0a3;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{margin:0;background:var(--ink);font-family:'Hanken Grotesk',system-ui,sans-serif;color:var(--text-dark);}
+::selection{background:var(--gold);color:#1b1710;}
+[data-reveal]{opacity:0;transform:translateY(26px);transition:opacity 1.1s cubic-bezier(.2,.7,.2,1),transform 1.1s cubic-bezier(.2,.7,.2,1);}
+[data-reveal].tk-in{opacity:1 !important;transform:none !important;}
+@keyframes tkGlow{0%,100%{opacity:.5;transform:translateX(-50%) scale(1);}50%{opacity:.9;transform:translateX(-50%) scale(1.06);}}
+</style>
+</helmet>
+
+<dc-import name="TruKode-Nav" active="about" hint-size="100%,67px"></dc-import>
+
+<!-- ===================== OPENING HERO ===================== -->
+<section style="position:relative;overflow:hidden;background:var(--ink)">
+  <div style="position:absolute;top:-18%;left:50%;width:min(880px,150vw);height:min(880px,150vw);transform:translateX(-50%);background:radial-gradient(circle,rgba(216,180,120,0.16),rgba(216,180,120,0.04) 42%,transparent 64%);animation:tkGlow 10s ease-in-out infinite;pointer-events:none"></div>
+  <div style="position:relative;max-width:900px;margin:0 auto;padding:clamp(96px,18vh,200px) clamp(22px,5vw,56px) clamp(88px,15vh,170px);min-height:clamp(520px,82vh,820px);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center">
+    <div data-reveal style="font-family:'Hanken Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.28em;font-size:11.5px;font-weight:600;color:var(--gold);margin-bottom:34px">The Manifesto</div>
+    <h1 data-reveal style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(42px,9vw,92px);line-height:1.02;letter-spacing:-0.014em;color:var(--text-light);text-wrap:balance">You came into this world without a manual.</h1>
+  </div>
+</section>
+
+<!-- ===================== MANIFESTO NARRATIVE ===================== -->
+<section style="background:var(--paper)">
+  <div style="max-width:680px;margin:0 auto;padding:clamp(80px,14vh,170px) clamp(24px,6vw,40px)">
+
+    <div data-reveal>
+      <div style="font-family:'Hanken Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.24em;font-size:11px;font-weight:600;color:var(--gold-strong);margin-bottom:28px">Where it begins</div>
+      <p style="margin:0;font-size:clamp(17px,2.4vw,20px);line-height:1.8;color:var(--text-dark)">For most of human history, there was no time to ask <em style="font-style:italic">who am I.</em> There was only the next thing that had to be done — the harvest, the work, the war, the mouth to feed. The deeper questions were a luxury few could afford. And so they waited, generation after generation, mostly unasked.</p>
+    </div>
+
+    <div data-reveal style="margin:clamp(48px,8vh,84px) 0;padding:clamp(28px,5vw,40px) 0;border-top:1px solid rgba(42,38,32,0.12);border-bottom:1px solid rgba(42,38,32,0.12);text-align:center">
+      <p style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(26px,4.6vw,40px);line-height:1.2;letter-spacing:-0.01em;color:var(--text-dark);text-wrap:balance">For most of history, there was no time to wonder who you were. There was only the next thing that had to be done.</p>
+    </div>
+
+    <div data-reveal>
+      <p style="margin:0;font-size:clamp(17px,2.4vw,20px);line-height:1.8;color:var(--text-dark)">Something has shifted. For the first time, on a scale never seen before, people have the space — and the longing — to turn inward. Not to escape their lives, but to live them more fully. We are no longer only trying to survive. We are trying to become.</p>
+      <p style="margin:28px 0 0;font-size:clamp(17px,2.4vw,20px);line-height:1.8;color:var(--text-dark)">This is the era of <strong style="font-weight:600">Human 2.0</strong>: a generation that treats understanding itself not as indulgence, but as the foundation everything else is built upon.</p>
+    </div>
+
+    <div data-reveal style="margin-top:clamp(48px,8vh,84px)">
+      <p style="margin:0;font-size:clamp(17px,2.4vw,20px);line-height:1.8;color:var(--text-dark)">And so we look. We reach for the spiritual, the psychological, the behavioral, the purposeful — and each one is real. Each reveals a genuine dimension of who you are. Numerology, archetypes, the phase of life you happen to be standing in, the quiet intelligence of the spirit — none of these are noise. They are facets of the same whole.</p>
+      <p style="margin:28px 0 0;font-size:clamp(17px,2.4vw,20px);line-height:1.8;color:var(--text-dark)">But they almost always arrive as separate pieces. A reading here. A framework there. An insight that glows for a week, then fades — because nothing ever connected it to the rest of you.</p>
+    </div>
+
+    <div data-reveal style="margin:clamp(48px,8vh,84px) 0;padding:clamp(28px,5vw,40px) 0;border-top:1px solid rgba(42,38,32,0.12);border-bottom:1px solid rgba(42,38,32,0.12);text-align:center">
+      <p style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(26px,4.6vw,40px);line-height:1.2;letter-spacing:-0.01em;color:var(--text-dark);text-wrap:balance">You were never short on information. You were short on a way to see how the pieces <span style="color:var(--gold-strong)">fit together.</span></p>
+    </div>
+
+    <div data-reveal>
+      <p style="margin:0;font-size:clamp(17px,2.4vw,20px);line-height:1.8;color:var(--text-dark)">The modern answer to that gap was simply <em style="font-style:italic">more</em> — more content, more tests, more advice. And more, it turned out, only deepened the noise. The pieces multiplied. The picture did not.</p>
+      <p style="margin:28px 0 0;font-size:clamp(17px,2.4vw,20px);line-height:1.8;color:var(--text-dark)">TruKode was built for exactly this moment. Not to add another fragment, but to bring the fragments together — to take the dimensions that have always described us and decode them, from your own data, into one cohesive, deeply personal picture. The whole, at last, seen as a whole.</p>
+    </div>
+
+    <div data-reveal style="margin-top:clamp(72px,12vh,140px);text-align:center">
+      <p style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,5.4vw,54px);line-height:1.1;letter-spacing:-0.012em;color:var(--text-dark);text-wrap:balance">You came into this world without a manual.<br><span style="color:var(--gold-strong)">Consider this yours.</span></p>
+      <p style="margin:24px 0 0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(19px,3vw,24px);color:var(--text-dark-soft)">You've just been decoded.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== HOW YOUR READ IS CREATED ===================== -->
+<section style="background:var(--cream)">
+  <div style="max-width:680px;margin:0 auto;padding:clamp(80px,13vh,160px) clamp(24px,6vw,40px)">
+    <div data-reveal>
+      <div style="font-family:'Hanken Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.24em;font-size:11px;font-weight:600;color:var(--gold-strong);margin-bottom:26px">The care behind it</div>
+      <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,5.2vw,50px);line-height:1.08;letter-spacing:-0.012em;color:var(--text-dark);text-wrap:balance">How your Read is created.</h2>
+    </div>
+    <div data-reveal style="margin-top:34px">
+      <p style="margin:0;font-size:clamp(17px,2.4vw,20px);line-height:1.8;color:var(--text-dark)">Every Read is brought to life by an advanced intelligence we've carefully trained on the most trusted, time-honored methods behind this kind of work — the established practices of numerology, psychology, archetypes, life-cycle phases, and spiritual insight — paired with precise, proven calculations applied to your own unique data.</p>
+      <p style="margin:28px 0 0;font-size:clamp(17px,2.4vw,20px);line-height:1.8;color:var(--text-dark)">This is not generic, and it is not random. It's a thoughtfully built system that brings rigor and consistency to something deeply personal — so that what you receive is both meaningful and grounded, never a horoscope and never a guess.</p>
+      <p style="margin:28px 0 0;font-size:clamp(17px,2.4vw,20px);line-height:1.8;color:var(--text-dark)">And because care matters most where it's most personal, <strong style="font-weight:600">every report is reviewed before it reaches you.</strong> You're in expert, attentive hands from the first question to the final page.</p>
+    </div>
+    <div data-reveal style="margin-top:40px;display:flex;flex-wrap:wrap;gap:10px">
+      <span style="padding:8px 16px;border:1px solid rgba(42,38,32,0.16);border-radius:999px;font-size:13px;color:var(--text-dark-soft)">Numerology</span>
+      <span style="padding:8px 16px;border:1px solid rgba(42,38,32,0.16);border-radius:999px;font-size:13px;color:var(--text-dark-soft)">Psychology</span>
+      <span style="padding:8px 16px;border:1px solid rgba(42,38,32,0.16);border-radius:999px;font-size:13px;color:var(--text-dark-soft)">Archetypes</span>
+      <span style="padding:8px 16px;border:1px solid rgba(42,38,32,0.16);border-radius:999px;font-size:13px;color:var(--text-dark-soft)">Life-Cycle Phases</span>
+      <span style="padding:8px 16px;border:1px solid rgba(42,38,32,0.16);border-radius:999px;font-size:13px;color:var(--text-dark-soft)">Spiritual Insight</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== THE FIVE TRUTHS ===================== -->
+<section style="background:var(--ink)">
+  <div style="max-width:840px;margin:0 auto;padding:clamp(80px,13vh,160px) clamp(22px,5vw,56px)">
+    <div data-reveal style="text-align:center;margin-bottom:clamp(40px,7vh,72px)">
+      <div style="font-family:'Hanken Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.26em;font-size:11.5px;font-weight:600;color:var(--gold);margin-bottom:22px">The Five Truths</div>
+      <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(31px,5.4vw,54px);line-height:1.06;letter-spacing:-0.012em;color:var(--text-light)">What we hold to be true.</h2>
+    </div>
+
+    <div data-reveal style="display:flex;flex-direction:column;gap:clamp(48px,8vh,80px)">
+      <div style="text-align:center;max-width:640px;margin:0 auto"><div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--gold);margin-bottom:16px">I.</div><p style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(24px,4vw,36px);line-height:1.2;letter-spacing:-0.01em;color:var(--text-light);text-wrap:balance">Every human being is multi-dimensional — and exploring those dimensions is one of life's greatest journeys.</p></div>
+      <div style="text-align:center;max-width:640px;margin:0 auto"><div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--gold);margin-bottom:16px">II.</div><p style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(24px,4vw,36px);line-height:1.2;letter-spacing:-0.01em;color:var(--text-light);text-wrap:balance">Who you are is shaped by both what you were born with and all that life has coded into you over time.</p></div>
+      <div style="text-align:center;max-width:640px;margin:0 auto"><div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--gold);margin-bottom:16px">III.</div><p style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(24px,4vw,36px);line-height:1.2;letter-spacing:-0.01em;color:var(--text-light);text-wrap:balance">We're living in a defining moment, where self-discovery has become a life aspiration rather than a matter of survival.</p></div>
+      <div style="text-align:center;max-width:640px;margin:0 auto"><div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--gold);margin-bottom:16px">IV.</div><p style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(24px,4vw,36px);line-height:1.2;letter-spacing:-0.01em;color:var(--text-light);text-wrap:balance">The challenge was never a lack of information — it was having all the pieces, yet still searching for how they fit together.</p></div>
+      <div style="text-align:center;max-width:640px;margin:0 auto"><div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--gold);margin-bottom:16px">V.</div><p style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(24px,4vw,36px);line-height:1.2;letter-spacing:-0.01em;color:var(--text-light);text-wrap:balance">Self-knowledge is transformative — it reveals what's been holding you back, and opens the door to living with clarity, direction, and confidence.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== HUMAN 2.0 DECLARATION ===================== -->
+<section style="position:relative;overflow:hidden;background:var(--ink-soft);border-top:1px solid rgba(216,180,120,0.09)">
+  <div style="position:absolute;top:50%;left:50%;width:min(700px,140vw);height:min(700px,140vw);transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(216,180,120,0.1),transparent 60%);pointer-events:none"></div>
+  <div style="position:relative;max-width:760px;margin:0 auto;padding:clamp(88px,15vh,180px) clamp(22px,5vw,56px);text-align:center">
+    <div data-reveal style="font-family:'Hanken Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.28em;font-size:11.5px;font-weight:600;color:var(--gold);margin-bottom:30px">The Human 2.0 Declaration</div>
+    <p data-reveal style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(27px,4.8vw,48px);line-height:1.18;letter-spacing:-0.01em;color:var(--text-light);text-wrap:balance">Knowing yourself is no longer a luxury. It is a priority. The question is no longer only <em style="font-style:italic">how do I survive</em> — but <span style="color:var(--gold)">who am I, and how do I thrive.</span></p>
+    <p data-reveal style="margin:34px 0 0;font-size:clamp(15px,2.2vw,18px);line-height:1.7;color:var(--text-light-soft)">TruKode was built for this moment, and for this generation.</p>
+  </div>
+</section>
+
+<!-- ===================== THE COMPANY (LIGHT TOUCH) ===================== -->
+<section style="background:var(--ink-deep)">
+  <div style="max-width:680px;margin:0 auto;padding:clamp(48px,7vh,80px) clamp(22px,5vw,56px);text-align:center">
+    <div data-reveal style="display:inline-flex;flex-direction:column;align-items:center;gap:14px">
+      <span style="width:30px;height:1px;background:rgba(216,180,120,0.4)"></span>
+      <p style="margin:0;font-size:14px;line-height:1.6;color:var(--text-light-soft)">TruKode is created by <span style="color:var(--text-light)">Frankly / Frenkko LLC</span> — a small team building tools for the work of becoming fully human.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CLOSING CTA ===================== -->
+<section style="position:relative;overflow:hidden;background:var(--ink)">
+  <div style="position:absolute;bottom:-40%;left:50%;width:min(820px,150vw);height:min(820px,150vw);transform:translateX(-50%);background:radial-gradient(circle,rgba(216,180,120,0.16),rgba(216,180,120,0.05) 40%,transparent 64%);animation:tkGlow 11s ease-in-out infinite;pointer-events:none"></div>
+  <div style="position:relative;max-width:760px;margin:0 auto;padding:clamp(90px,15vh,180px) clamp(22px,5vw,56px);text-align:center">
+    <p data-reveal style="margin:0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(18px,2.6vw,22px);color:var(--gold)">You've just been decoded.</p>
+    <h2 data-reveal style="margin:18px 0 0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(34px,6.2vw,64px);line-height:1.05;letter-spacing:-0.012em;color:var(--text-light);text-wrap:balance">When you're ready, begin.</h2>
+    <p data-reveal style="margin:20px auto 0;max-width:440px;font-size:clamp(15px,2.1vw,17px);line-height:1.65;color:var(--text-light-soft)">No pressure, no rush. Just the first step toward seeing yourself clearly — whenever it feels like the right time.</p>
+    <div data-reveal style="display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:40px">
+      <a href="TruKode-All-Reads.dc.html" style="display:inline-flex;align-items:center;justify-content:center;padding:17px 36px;background:var(--gold);color:#1b1710;font-family:'Hanken Grotesk',sans-serif;font-weight:600;font-size:16px;border-radius:999px;text-decoration:none;transition:transform .3s ease,box-shadow .3s ease" style-hover="transform:translateY(-2px);box-shadow:0 14px 38px rgba(216,180,120,0.34)">Discover your Reads</a>
+      <span style="font-size:14px;color:var(--text-light-soft)">Most begin with the Personal Read™ — $29</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer style="background:var(--ink-deep);border-top:1px solid rgba(216,180,120,0.1)">
+  <div style="max-width:1160px;margin:0 auto;padding:clamp(56px,8vh,84px) clamp(22px,5vw,56px) 40px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:36px 28px">
+      <div style="grid-column:1 / -1;max-width:340px">
+        <a href="TruKode-Landing.dc.html" style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--text-light);text-decoration:none">TruKode<span style="color:var(--gold)">.</span></a>
+        <p style="margin:14px 0 0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;line-height:1.4;color:var(--text-light-soft)">You came into this world without a manual. Consider this yours.</p>
+      </div>
+      <div>
+        <div style="font-family:'Hanken Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.16em;font-size:11px;font-weight:600;color:var(--gold);margin-bottom:16px">The Reads</div>
+        <div style="display:flex;flex-direction:column;gap:11px"><a href="TruKode-Product-Personal-Read.dc.html" style="font-size:14px;color:var(--text-light-soft);text-decoration:none;transition:color .25s ease" style-hover="color:var(--gold)">Personal Read™</a><a href="TruKode-Product-Personal-Read.dc.html" style="font-size:14px;color:var(--text-light-soft);text-decoration:none;transition:color .25s ease" style-hover="color:var(--gold)">Compatibility Read™</a><a href="TruKode-Product-Personal-Read.dc.html" style="font-size:14px;color:var(--text-light-soft);text-decoration:none;transition:color .25s ease" style-hover="color:var(--gold)">Life Purpose Read™</a><a href="TruKode-Product-Personal-Read.dc.html" style="font-size:14px;color:var(--text-light-soft);text-decoration:none;transition:color .25s ease" style-hover="color:var(--gold)">Roadblock Read™</a><a href="TruKode-Product-Personal-Read.dc.html" style="font-size:14px;color:var(--text-light-soft);text-decoration:none;transition:color .25s ease" style-hover="color:var(--gold)">Career / Business Read™</a></div>
+      </div>
+      <div>
+        <div style="font-family:'Hanken Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.16em;font-size:11px;font-weight:600;color:var(--gold);margin-bottom:16px">Explore</div>
+        <div style="display:flex;flex-direction:column;gap:11px"><a href="TruKode-Landing.dc.html#how" style="font-size:14px;color:var(--text-light-soft);text-decoration:none;transition:color .25s ease" style-hover="color:var(--gold)">How it works</a><a href="TruKode-Landing.dc.html#who" style="font-size:14px;color:var(--text-light-soft);text-decoration:none;transition:color .25s ease" style-hover="color:var(--gold)">Who it's for</a><a href="TruKode-About.dc.html" style="font-size:14px;color:var(--text-light-soft);text-decoration:none;transition:color .25s ease" style-hover="color:var(--gold)">The Manifesto</a></div>
+      </div>
+      <div>
+        <div style="font-family:'Hanken Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.16em;font-size:11px;font-weight:600;color:var(--gold);margin-bottom:16px">Company</div>
+        <div style="display:flex;flex-direction:column;gap:11px"><a href="mailto:hello@trukode.com" style="font-size:14px;color:var(--text-light-soft);text-decoration:none;transition:color .25s ease" style-hover="color:var(--gold)">Contact</a><a href="TruKode-FAQ.dc.html" style="font-size:14px;color:var(--text-light-soft);text-decoration:none;transition:color .25s ease" style-hover="color:var(--gold)">FAQ</a></div>
+      </div>
+    </div>
+    <div style="margin-top:48px;padding-top:26px;border-top:1px solid rgba(216,180,120,0.1);display:flex;flex-wrap:wrap;gap:14px 28px;justify-content:space-between;align-items:center">
+      <span style="font-size:12.5px;color:var(--text-light-soft)">© 2026 TruKode · Human Decode™ · The Blueprint System™</span>
+      <span style="font-family:'Hanken Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.16em;font-size:10px;color:rgba(184,176,163,0.7)">Made for becoming fully human</span>
+    </div>
+    <p style="margin:22px 0 0;max-width:720px;font-size:12px;line-height:1.6;color:rgba(184,176,163,0.65)">TruKode offers tools for self-reflection and personal development. It is not therapy, medical or psychological diagnosis, or professional advice, and is not intended to diagnose, treat, or replace the care of a qualified professional.</p>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#d8b478&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;reveals&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  applyAccent() {
+    const a = this.props.accent;
+    if (a) document.documentElement.style.setProperty('--gold', a);
+  }
+  componentDidMount() {
+    this.applyAccent();
+    const els = Array.from(document.querySelectorAll('[data-reveal]'));
+    const show = el => { el.classList.add('tk-in'); };
+    if (this.props.reveals === false) { els.forEach(show); return; }
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { show(e.target); io.unobserve(e.target); } });
+      }, { threshold: 0.08, rootMargin: '0px 0px -8% 0px' });
+      els.forEach(el => io.observe(el));
+      els.slice(0, 2).forEach((el, i) => setTimeout(() => show(el), 140 + i * 160));
+      this._io = io;
+    } else {
+      els.forEach(show);
+    }
+    this._fb = setTimeout(() => els.forEach(show), 2400);
+  }
+  componentDidUpdate() { this.applyAccent(); }
+  componentWillUnmount() { clearTimeout(this._fb); if (this._io) this._io.disconnect(); }
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

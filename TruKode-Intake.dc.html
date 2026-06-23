@@ -1,0 +1,283 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+ --gold:#d8b478;
+ --gold-strong:color-mix(in oklab, #d8b478, #000 18%);
+ --ink:#15120e;
+ --ink-soft:#211c15;
+ --ink-deep:#100d09;
+ --text-light:#ece7df;
+ --text-light-soft:#b8b0a3;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;height:100%;}
+body{background:var(--ink);font-family:'Hanken Grotesk',system-ui,sans-serif;color:var(--text-light);}
+::selection{background:var(--gold);color:#1b1710;}
+input{font-family:inherit;color-scheme:dark;}
+input:focus{outline:none;}
+@keyframes tkFwdA{from{opacity:0;transform:translateX(30px);}to{opacity:1;transform:none;}}
+@keyframes tkFwdB{from{opacity:0;transform:translateX(30px);}to{opacity:1;transform:none;}}
+@keyframes tkBackA{from{opacity:0;transform:translateX(-30px);}to{opacity:1;transform:none;}}
+@keyframes tkBackB{from{opacity:0;transform:translateX(-30px);}to{opacity:1;transform:none;}}
+@keyframes tkSpin{to{transform:rotate(360deg);}}
+@keyframes tkPulse{0%,100%{opacity:.5;transform:scale(1);}50%{opacity:1;transform:scale(1.04);}}
+@keyframes tkGlow{0%,100%{opacity:.5;}50%{opacity:.85;}}
+</style>
+</helmet>
+
+<div style="position:relative;min-height:100vh;display:flex;flex-direction:column;overflow:hidden">
+  <div style="position:absolute;top:-26%;left:50%;width:min(780px,150vw);height:min(780px,150vw);transform:translateX(-50%);background:radial-gradient(circle,rgba(216,180,120,0.13),rgba(216,180,120,0.03) 44%,transparent 64%);animation:tkGlow 9s ease-in-out infinite;pointer-events:none"></div>
+
+  <!-- TOP BAR -->
+  <div style="position:relative;z-index:2;flex:none">
+    <div style="max-width:680px;margin:0 auto;padding:20px clamp(22px,6vw,40px) 0;display:flex;align-items:center;justify-content:space-between;gap:16px">
+      <span style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--text-light)">TruKode<span style="color:var(--gold)">.</span></span>
+      <sc-if value="{{ showProgress }}" hint-placeholder-val="{{ false }}"><span style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;letter-spacing:0.04em;color:var(--text-light-soft)">{{ progressLabel }}</span></sc-if>
+    </div>
+    <sc-if value="{{ showProgress }}" hint-placeholder-val="{{ false }}">
+      <div style="max-width:680px;margin:14px auto 0;padding:0 clamp(22px,6vw,40px)">
+        <div style="height:3px;border-radius:999px;background:rgba(216,180,120,0.16);overflow:hidden">
+          <div style="height:100%;border-radius:999px;background:linear-gradient(90deg,var(--gold-strong),var(--gold));transition:width .6s cubic-bezier(.2,.7,.2,1);width:{{ progressW }}"></div>
+        </div>
+      </div>
+    </sc-if>
+  </div>
+
+  <!-- STAGE -->
+  <main style="position:relative;z-index:2;flex:1;display:flex;align-items:center;justify-content:center;padding:clamp(36px,8vh,80px) clamp(22px,6vw,40px)">
+    <div style="width:100%;max-width:560px;text-align:center;animation:{{ stageAnim }}">
+
+      <!-- WELCOME -->
+      <sc-if value="{{ isWelcome }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-direction:column;align-items:center">
+          <div style="font-family:'Hanken Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.28em;font-size:11px;font-weight:600;color:var(--gold);margin-bottom:30px">Human Decode™</div>
+          <h1 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(34px,7.5vw,56px);line-height:1.08;letter-spacing:-0.012em;color:var(--text-light);text-wrap:balance">Let's begin decoding your blueprint — one question at a time.</h1>
+          <p style="margin:24px 0 0;font-size:clamp(16px,2.4vw,19px);line-height:1.6;color:var(--text-light-soft);max-width:420px">This takes just a few minutes. There are no wrong answers — only your own.</p>
+        </div>
+      </sc-if>
+
+      <!-- QUESTION -->
+      <sc-if value="{{ isQuestion }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;align-items:center">
+          <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,6.2vw,48px);line-height:1.1;letter-spacing:-0.012em;color:var(--text-light);text-wrap:balance">{{ q }}</h2>
+          <p style="margin:18px 0 0;font-size:15px;line-height:1.55;color:var(--text-light-soft);max-width:400px">{{ micro }}</p>
+
+          <div style="width:100%;margin-top:38px">
+            <sc-if value="{{ isText }}" hint-placeholder-val="{{ false }}">
+              <input type="text" value="{{ draft }}" onInput="{{ onInput }}" placeholder="{{ placeholder }}" style="width:100%;background:transparent;border:none;border-bottom:1.5px solid rgba(216,180,120,0.35);padding:14px 6px;text-align:center;font-family:'Cormorant Garamond',serif;font-size:clamp(24px,5vw,34px);color:var(--text-light)" style-focus="border-bottom-color:var(--gold)">
+            </sc-if>
+            <sc-if value="{{ isPlace }}" hint-placeholder-val="{{ false }}">
+              <input type="text" value="{{ draft }}" onInput="{{ onInput }}" placeholder="{{ placeholder }}" style="width:100%;background:transparent;border:none;border-bottom:1.5px solid rgba(216,180,120,0.35);padding:14px 6px;text-align:center;font-family:'Cormorant Garamond',serif;font-size:clamp(22px,4.4vw,30px);color:var(--text-light)" style-focus="border-bottom-color:var(--gold)">
+            </sc-if>
+            <sc-if value="{{ isDate }}" hint-placeholder-val="{{ false }}">
+              <input type="date" value="{{ draft }}" onInput="{{ onInput }}" style="width:100%;max-width:320px;background:var(--ink-soft);border:1px solid rgba(216,180,120,0.3);border-radius:12px;padding:16px 18px;text-align:center;font-family:'Hanken Grotesk',sans-serif;font-size:18px;color:var(--text-light)" style-focus="border-color:var(--gold)">
+            </sc-if>
+            <sc-if value="{{ isTime }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;flex-direction:column;align-items:center;gap:18px">
+                <input type="time" value="{{ draft }}" onInput="{{ onInput }}" style="width:100%;max-width:260px;background:var(--ink-soft);border:1px solid rgba(216,180,120,0.3);border-radius:12px;padding:16px 18px;text-align:center;font-family:'Hanken Grotesk',sans-serif;font-size:18px;color:var(--text-light)" style-focus="border-color:var(--gold)">
+                <button onClick="{{ skipTime }}" style="background:none;border:none;cursor:pointer;font-family:'Hanken Grotesk',sans-serif;font-size:14px;color:var(--text-light-soft);text-decoration:underline;text-underline-offset:3px" style-hover="color:var(--gold)">Not sure? That's okay — skip this</button>
+              </div>
+            </sc-if>
+            <sc-if value="{{ isChoice }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;flex-direction:column;gap:11px">
+                <sc-for list="{{ choices }}" as="opt" hint-placeholder-count="4">
+                  <button onClick="{{ opt.on }}" style="width:100%;text-align:left;padding:18px 22px;border-radius:12px;cursor:pointer;font-family:'Hanken Grotesk',sans-serif;font-size:16.5px;font-weight:500;color:var(--text-light);background:{{ opt.bg }};border:1px solid {{ opt.bd }};transition:border-color .25s ease,background .25s ease" style-hover="border-color:var(--gold)">{{ opt.label }}</button>
+                </sc-for>
+              </div>
+            </sc-if>
+          </div>
+
+          <sc-if value="{{ error }}" hint-placeholder-val="{{ false }}">
+            <p style="margin:18px 0 0;font-size:14px;color:var(--gold)">{{ error }}</p>
+          </sc-if>
+        </div>
+      </sc-if>
+
+      <!-- INTERSTITIAL -->
+      <sc-if value="{{ isInterstitial }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;align-items:center">
+          <div style="width:46px;height:46px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;margin-bottom:28px"><span style="width:10px;height:10px;border-radius:50%;background:var(--gold)"></span></div>
+          <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(28px,5.6vw,44px);line-height:1.12;letter-spacing:-0.01em;color:var(--text-light);text-wrap:balance">You're sharing this in a safe place.</h2>
+          <p style="margin:22px 0 0;font-size:clamp(15px,2.2vw,17px);line-height:1.65;color:var(--text-light-soft);max-width:440px">Your details are private and used only to decode your blueprint. Every report is personally reviewed before it reaches you. Take a breath — you're halfway there.</p>
+        </div>
+      </sc-if>
+
+      <!-- REVIEW -->
+      <sc-if value="{{ isReview }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;align-items:center">
+          <div style="font-family:'Hanken Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.26em;font-size:11px;font-weight:600;color:var(--gold);margin-bottom:22px">One last look</div>
+          <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,6vw,46px);line-height:1.1;letter-spacing:-0.012em;color:var(--text-light)">Does this look right?</h2>
+          <div style="width:100%;margin-top:34px;display:flex;flex-direction:column">
+            <sc-for list="{{ reviewItems }}" as="item" hint-placeholder-count="5">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 4px;border-top:1px solid rgba(216,180,120,0.14);text-align:left">
+                <div style="min-width:0"><div style="font-family:'Hanken Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.12em;font-size:10px;color:var(--text-light-soft);margin-bottom:4px">{{ item.label }}</div><div style="font-family:'Cormorant Garamond',serif;font-size:21px;color:var(--text-light);overflow:hidden;text-overflow:ellipsis">{{ item.value }}</div></div>
+                <button onClick="{{ item.on }}" style="flex:none;background:none;border:none;cursor:pointer;font-family:'Hanken Grotesk',sans-serif;font-size:13px;font-weight:600;color:var(--gold)" style-hover="opacity:.75">Edit</button>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- DECODING -->
+      <sc-if value="{{ isSubmitted }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;align-items:center">
+          <div style="position:relative;width:72px;height:72px;margin-bottom:34px">
+            <div style="position:absolute;inset:0;border-radius:50%;border:2px solid rgba(216,180,120,0.2);border-top-color:var(--gold);animation:tkSpin 1.1s linear infinite"></div>
+            <div style="position:absolute;inset:24px;border-radius:50%;background:var(--gold);animation:tkPulse 1.8s ease-in-out infinite"></div>
+          </div>
+          <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,6vw,46px);line-height:1.1;color:var(--text-light)">Decoding your blueprint…</h2>
+          <p style="margin:20px 0 0;font-size:16px;line-height:1.6;color:var(--text-light-soft);max-width:380px">This will only take a moment. We'll let you know the instant your Read is ready.</p>
+        </div>
+      </sc-if>
+
+    </div>
+  </main>
+
+  <!-- CONTROLS -->
+  <div style="position:relative;z-index:2;flex:none;padding:0 clamp(22px,6vw,40px) clamp(30px,6vh,52px)">
+    <div style="max-width:560px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:16px">
+      <sc-if value="{{ showContinue }}" hint-placeholder-val="{{ true }}">
+        <button onClick="{{ next }}" style="width:100%;display:inline-flex;align-items:center;justify-content:center;padding:17px 32px;background:var(--gold);color:#1b1710;border:none;cursor:pointer;font-family:'Hanken Grotesk',sans-serif;font-weight:600;font-size:16px;border-radius:999px;transition:transform .3s ease,box-shadow .3s ease" style-hover="transform:translateY(-2px);box-shadow:0 12px 34px rgba(216,180,120,0.32)">{{ ctaLabel }}</button>
+      </sc-if>
+      <sc-if value="{{ isReview }}" hint-placeholder-val="{{ false }}">
+        <button onClick="{{ submit }}" style="width:100%;display:inline-flex;align-items:center;justify-content:center;padding:17px 32px;background:var(--gold);color:#1b1710;border:none;cursor:pointer;font-family:'Hanken Grotesk',sans-serif;font-weight:600;font-size:16px;border-radius:999px;transition:transform .3s ease,box-shadow .3s ease" style-hover="transform:translateY(-2px);box-shadow:0 12px 34px rgba(216,180,120,0.32)">Decode my blueprint</button>
+      </sc-if>
+      <sc-if value="{{ showBack }}" hint-placeholder-val="{{ false }}">
+        <button onClick="{{ back }}" style="background:none;border:none;cursor:pointer;font-family:'Hanken Grotesk',sans-serif;font-size:14px;color:var(--text-light-soft);transition:color .25s ease" style-hover="color:var(--text-light)">← Back</button>
+      </sc-if>
+      <sc-if value="{{ isWelcome }}" hint-placeholder-val="{{ false }}">
+        <span style="display:inline-flex;align-items:center;gap:8px;font-size:12.5px;color:var(--text-light-soft)"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold)"></span>Private &amp; secure · reviewed before delivery</span>
+      </sc-if>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#d8b478&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { i: 0, answers: {}, draft: '', error: '', anim: 0, dir: 1, submitted: false };
+  qTotal = 24;
+  screens = [
+    { type: 'welcome' },
+    { type: 'question', input: 'text', key: 'firstName', label: 'First name', q: "What's your first name?", micro: "We'll use this to personalize your Read — nothing more.", placeholder: 'Your first name', empty: "Even just a name to call you by — whenever you're ready." },
+    { type: 'question', input: 'date', key: 'birthDate', label: 'Born on', q: 'When were you born?', micro: 'Your birth date anchors the core numbers of your blueprint.', empty: 'Your birth date helps us begin — add it when you can.' },
+    { type: 'question', input: 'place', key: 'birthPlace', label: 'Born in', q: 'Where were you born?', micro: 'City and country is enough. Your location stays private.', placeholder: 'City, country', empty: 'A city and country is all we need here.' },
+    { type: 'interstitial' },
+    { type: 'question', input: 'time', key: 'birthTime', label: 'Born at', q: 'What time were you born?', micro: 'It refines your blueprint — but an estimate is perfectly fine.', required: false },
+    { type: 'question', input: 'choice', key: 'intention', label: 'Here for', q: "What's drawing you to this Read?", micro: 'This helps us frame your guidance. There is no wrong answer.', options: ['Understanding myself more deeply', "I'm in a season of change", 'Pure curiosity', "Something I can't quite name yet"] },
+    { type: 'review' }
+  ];
+
+  cur() { return this.screens[this.state.i] || {}; }
+  isEmpty() { return !String(this.state.draft || '').trim(); }
+
+  go(d, ansOverride) {
+    const ni = Math.max(0, Math.min(this.screens.length - 1, this.state.i + d));
+    const A = ansOverride || this.state.answers;
+    const nx = this.screens[ni] || {};
+    const draft = nx.type === 'question' ? (A[nx.key] || '') : '';
+    this.setState(s => ({ i: ni, draft, error: '', dir: d, anim: s.anim + 1, answers: ansOverride || s.answers }));
+  }
+
+  next = () => {
+    const c = this.cur();
+    if (c.type === 'question') {
+      if (this.isEmpty() && c.required !== false) { this.setState({ error: c.empty || "This one helps us decode you — whenever you're ready." }); return; }
+      this.setState(s => ({ answers: { ...s.answers, [c.key]: s.draft } }));
+    }
+    this.go(1);
+  };
+  back = () => { this.go(-1); };
+  onInput = (e) => { this.setState({ draft: e.target.value, error: '' }); };
+
+  choose(opt) {
+    const c = this.cur();
+    const ans = { ...this.state.answers, [c.key]: opt };
+    this.setState({ draft: opt, error: '' });
+    clearTimeout(this._ch);
+    this._ch = setTimeout(() => { this.go(1, ans); }, 190);
+  }
+
+  skipTime = () => {
+    const c = this.cur();
+    const ans = { ...this.state.answers, [c.key]: 'Not sure' };
+    this.go(1, ans);
+  };
+
+  submit = () => {
+    this.setState({ submitted: true, dir: 1, anim: this.state.anim + 1 });
+    setTimeout(() => { window.location.href = 'TruKode-Confirmation.dc.html'; }, 2000);
+  };
+  editTo(idx) { const nx = this.screens[idx]; this.setState(s => ({ i: idx, draft: (s.answers[nx.key] || ''), dir: -1, anim: s.anim + 1, error: '' })); }
+
+  qNum() { let n = 0; for (let k = 0; k <= this.state.i; k++) { if (this.screens[k] && this.screens[k].type === 'question') n++; } return n; }
+
+  componentDidMount() {
+    this._onKey = (e) => {
+      if (e.key !== 'Enter') return;
+      if (this.state.submitted) return;
+      const c = this.cur();
+      if (c.type === 'review') { this.submit(); return; }
+      if (c.type === 'question' && c.input === 'choice') return;
+      this.next();
+    };
+    document.addEventListener('keydown', this._onKey);
+    this._focus();
+  }
+  componentDidUpdate(pp, ps) { if (ps.i !== this.state.i) this._focus(); this.applyAccent(); }
+  componentWillUnmount() { document.removeEventListener('keydown', this._onKey); clearTimeout(this._ch); }
+  _focus() { setTimeout(() => { const el = document.querySelector('main input'); if (el) el.focus(); }, 60); }
+  applyAccent() { const a = this.props.accent; if (a) document.documentElement.style.setProperty('--gold', a); }
+
+  renderVals() {
+    this.applyAccent();
+    const s = this.state, c = this.cur();
+    const isQuestion = !s.submitted && c.type === 'question';
+    const isReview = !s.submitted && c.type === 'review';
+    const qn = this.qNum();
+    const animBase = s.dir < 0 ? 'tkBack' : 'tkFwd';
+    const animName = animBase + (s.anim % 2 ? 'A' : 'B');
+    const choices = (isQuestion && c.input === 'choice' ? c.options : []).map(o => ({
+      label: o, on: () => this.choose(o),
+      bg: o === s.draft ? 'rgba(216,180,120,0.14)' : 'rgba(216,180,120,0.04)',
+      bd: o === s.draft ? 'var(--gold)' : 'rgba(216,180,120,0.22)'
+    }));
+    const reviewItems = this.screens.map((sc, idx) => sc.type === 'question'
+      ? { label: sc.label, value: s.answers[sc.key] || '—', on: () => this.editTo(idx) } : null).filter(Boolean);
+
+    return {
+      isWelcome: !s.submitted && c.type === 'welcome',
+      isQuestion, isInterstitial: !s.submitted && c.type === 'interstitial',
+      isReview, isSubmitted: s.submitted,
+      isText: isQuestion && c.input === 'text',
+      isDate: isQuestion && c.input === 'date',
+      isPlace: isQuestion && c.input === 'place',
+      isTime: isQuestion && c.input === 'time',
+      isChoice: isQuestion && c.input === 'choice',
+      q: c.q || '', micro: c.micro || '', placeholder: c.placeholder || '',
+      draft: s.draft, error: s.error, choices, reviewItems,
+      showProgress: isQuestion,
+      progressLabel: 'Question ' + qn + ' of ' + this.qTotal,
+      progressW: Math.round((qn / this.qTotal) * 100) + '%',
+      showContinue: !s.submitted && (c.type === 'welcome' || c.type === 'interstitial' || (c.type === 'question' && c.input !== 'choice')),
+      ctaLabel: c.type === 'welcome' ? 'Begin' : 'Continue',
+      showBack: !s.submitted && s.i > 0 && c.type !== 'review',
+      stageAnim: animName + ' 0.5s cubic-bezier(.2,.7,.2,1)',
+      next: this.next, back: this.back, onInput: this.onInput, skipTime: this.skipTime, submit: this.submit
+    };
+  }
+}
+</script>
+</body>
+</html>

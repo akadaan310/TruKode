@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+ --gold:#d8b478;
+ --gold-strong:color-mix(in oklab, #d8b478, #000 18%);
+ --ink:#15120e;
+ --ink-soft:#211c15;
+ --ink-deep:#100d09;
+ --cream:#f6f3ec;
+ --paper:#fffdf8;
+ --text-dark:#2a2620;
+ --text-dark-soft:#6e665a;
+ --text-light:#ece7df;
+ --text-light-soft:#b8b0a3;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{margin:0;background:var(--ink);font-family:'Hanken Grotesk',system-ui,sans-serif;color:var(--text-dark);}
+::selection{background:var(--gold);color:#1b1710;}
+[data-reveal]{opacity:0;transform:translateY(26px);transition:opacity 1.05s cubic-bezier(.2,.7,.2,1),transform 1.05s cubic-bezier(.2,.7,.2,1);}
+[data-reveal].tk-in{opacity:1 !important;transform:none !important;}
+@keyframes tkGlow{0%,100%{opacity:.6;transform:scale(1);}50%{opacity:1;transform:scale(1.07);}}
+</style>
+</helmet>
+
+<dc-import name="TruKode-Nav" active="reads" hint-size="100%,67px"></dc-import>
+
+<!-- ===================== PAGE HEADER ===================== -->
+<section style="position:relative;overflow:hidden;background:var(--ink)">
+  <div style="position:absolute;top:-30%;left:50%;width:min(820px,140vw);height:min(820px,140vw);transform:translateX(-50%);background:radial-gradient(circle,rgba(216,180,120,0.16),rgba(216,180,120,0.04) 42%,transparent 64%);animation:tkGlow 9s ease-in-out infinite;pointer-events:none"></div>
+  <div style="position:relative;max-width:820px;margin:0 auto;padding:clamp(72px,12vh,130px) clamp(22px,5vw,56px) clamp(56px,9vh,90px);text-align:center">
+    <div data-reveal style="font-family:'Hanken Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.28em;font-size:11.5px;font-weight:600;color:var(--gold);margin-bottom:24px">The Reads</div>
+    <h1 data-reveal style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(40px,7.4vw,72px);line-height:1.03;letter-spacing:-0.014em;color:var(--text-light);text-wrap:balance">Five ways to read your blueprint.</h1>
+    <p data-reveal style="margin:24px auto 0;max-width:560px;font-size:clamp(15px,2.1vw,18px);line-height:1.65;color:var(--text-light-soft)">Every Read is decoded from your own unique data through The Blueprint System™ — each illuminating a different dimension of who you are.</p>
+  </div>
+</section>
+
+<!-- ===================== THE READS GRID ===================== -->
+<section style="background:var(--cream)">
+  <div style="max-width:1160px;margin:0 auto;padding:clamp(64px,10vh,110px) clamp(22px,5vw,56px)">
+    <div data-reveal style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px">
+
+      <a href="TruKode-Product-Personal-Read.dc.html" style="position:relative;display:flex;flex-direction:column;padding:32px 28px 26px;background:var(--paper);border:1.5px solid var(--gold);border-radius:14px;box-shadow:0 14px 40px rgba(216,180,120,0.18);text-decoration:none;transition:transform .35s ease,box-shadow .35s ease" style-hover="transform:translateY(-5px);box-shadow:0 22px 52px rgba(216,180,120,0.24)">
+        <span style="position:absolute;top:-11px;left:28px;padding:5px 13px;background:var(--gold);color:#1b1710;font-family:'Hanken Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.12em;font-size:10px;font-weight:700;border-radius:999px">Best place to start</span>
+        <span style="display:flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:12px;background:rgba(216,180,120,0.12)"><svg viewBox="0 0 40 40" width="30" height="30" fill="none"><circle cx="20" cy="20" r="14" style="stroke:var(--gold)" stroke-width="1.6"/><circle cx="20" cy="20" r="4" style="fill:var(--gold)"/></svg></span>
+        <h3 style="margin:22px 0 0;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:26px;color:var(--text-dark)">Personal Read™</h3>
+        <p style="margin:10px 0 0;font-size:15px;line-height:1.55;color:var(--text-dark-soft);flex:1">Who you are at your core — personality, strengths, blind spots, and decision style.</p>
+        <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-top:26px;padding-top:18px;border-top:1px solid rgba(42,38,32,0.1)">
+          <div style="display:flex;flex-direction:column;gap:3px"><span style="font-family:'Hanken Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.14em;font-size:10px;color:var(--text-dark-soft)">2 pages</span><span style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:30px;line-height:1;color:var(--gold-strong)">$29</span></div>
+          <span style="font-family:'Hanken Grotesk',sans-serif;font-size:14px;font-weight:600;color:var(--text-dark)">Learn more →</span>
+        </div>
+      </a>
+
+      <a href="TruKode-Product-Personal-Read.dc.html" style="display:flex;flex-direction:column;padding:32px 28px 26px;background:var(--paper);border:1px solid rgba(42,38,32,0.1);border-radius:14px;text-decoration:none;transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease" style-hover="transform:translateY(-5px);box-shadow:0 18px 44px rgba(42,38,32,0.1);border-color:rgba(216,180,120,0.5)">
+        <span style="display:flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:12px;background:rgba(216,180,120,0.12)"><svg viewBox="0 0 40 40" width="30" height="30" fill="none"><circle cx="15" cy="20" r="11" style="stroke:var(--gold)" stroke-width="1.6"/><circle cx="25" cy="20" r="11" style="stroke:var(--gold)" stroke-width="1.6"/></svg></span>
+        <h3 style="margin:22px 0 0;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:26px;color:var(--text-dark)">Compatibility Read™</h3>
+        <p style="margin:10px 0 0;font-size:15px;line-height:1.55;color:var(--text-dark-soft);flex:1">How you and your partner connect, communicate, and clash.</p>
+        <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-top:26px;padding-top:18px;border-top:1px solid rgba(42,38,32,0.1)">
+          <div style="display:flex;flex-direction:column;gap:3px"><span style="font-family:'Hanken Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.14em;font-size:10px;color:var(--text-dark-soft)">3 pages</span><span style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:30px;line-height:1;color:var(--gold-strong)">$59–79</span></div>
+          <span style="font-family:'Hanken Grotesk',sans-serif;font-size:14px;font-weight:600;color:var(--text-dark)">Learn more →</span>
+        </div>
+      </a>
+
+      <a href="TruKode-Product-Personal-Read.dc.html" style="display:flex;flex-direction:column;padding:32px 28px 26px;background:var(--paper);border:1px solid rgba(42,38,32,0.1);border-radius:14px;text-decoration:none;transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease" style-hover="transform:translateY(-5px);box-shadow:0 18px 44px rgba(42,38,32,0.1);border-color:rgba(216,180,120,0.5)">
+        <span style="display:flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:12px;background:rgba(216,180,120,0.12)"><svg viewBox="0 0 40 40" width="30" height="30" fill="none"><polygon points="20,3 23,17 37,20 23,23 20,37 17,23 3,20 17,17" style="fill:var(--gold)"/></svg></span>
+        <h3 style="margin:22px 0 0;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:26px;color:var(--text-dark)">Life Purpose Read™</h3>
+        <p style="margin:10px 0 0;font-size:15px;line-height:1.55;color:var(--text-dark-soft);flex:1">Your soul direction, mission, and conscious path.</p>
+        <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-top:26px;padding-top:18px;border-top:1px solid rgba(42,38,32,0.1)">
+          <div style="display:flex;flex-direction:column;gap:3px"><span style="font-family:'Hanken Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.14em;font-size:10px;color:var(--text-dark-soft)">3 pages</span><span style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:30px;line-height:1;color:var(--gold-strong)">$49</span></div>
+          <span style="font-family:'Hanken Grotesk',sans-serif;font-size:14px;font-weight:600;color:var(--text-dark)">Learn more →</span>
+        </div>
+      </a>
+
+      <a href="TruKode-Product-Personal-Read.dc.html" style="display:flex;flex-direction:column;padding:32px 28px 26px;background:var(--paper);border:1px solid rgba(42,38,32,0.1);border-radius:14px;text-decoration:none;transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease" style-hover="transform:translateY(-5px);box-shadow:0 18px 44px rgba(42,38,32,0.1);border-color:rgba(216,180,120,0.5)">
+        <span style="display:flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:12px;background:rgba(216,180,120,0.12)"><svg viewBox="0 0 40 40" width="30" height="30" fill="none"><line x1="5" y1="20" x2="14" y2="20" style="stroke:var(--gold)" stroke-width="1.6" stroke-linecap="round"/><line x1="26" y1="20" x2="35" y2="20" style="stroke:var(--gold)" stroke-width="1.6" stroke-linecap="round"/><rect x="15.5" y="15.5" width="9" height="9" rx="1.5" transform="rotate(45 20 20)" style="stroke:var(--gold)" stroke-width="1.6"/></svg></span>
+        <h3 style="margin:22px 0 0;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:26px;color:var(--text-dark)">Roadblock Read™</h3>
+        <p style="margin:10px 0 0;font-size:15px;line-height:1.55;color:var(--text-dark-soft);flex:1">The specific patterns blocking you from moving forward.</p>
+        <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-top:26px;padding-top:18px;border-top:1px solid rgba(42,38,32,0.1)">
+          <div style="display:flex;flex-direction:column;gap:3px"><span style="font-family:'Hanken Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.14em;font-size:10px;color:var(--text-dark-soft)">3 pages</span><span style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:30px;line-height:1;color:var(--gold-strong)">$49</span></div>
+          <span style="font-family:'Hanken Grotesk',sans-serif;font-size:14px;font-weight:600;color:var(--text-dark)">Learn more →</span>
+        </div>
+      </a>
+
+      <a href="TruKode-Product-Personal-Read.dc.html" style="display:flex;flex-direction:column;padding:32px 28px 26px;background:var(--paper);border:1px solid rgba(42,38,32,0.1);border-radius:14px;text-decoration:none;transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease" style-hover="transform:translateY(-5px);box-shadow:0 18px 44px rgba(42,38,32,0.1);border-color:rgba(216,180,120,0.5)">
+        <span style="display:flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:12px;background:rgba(216,180,120,0.12)"><svg viewBox="0 0 40 40" width="30" height="30" fill="none"><rect x="6" y="24" width="6" height="10" rx="1.5" style="fill:var(--gold)"/><rect x="17" y="17" width="6" height="17" rx="1.5" style="fill:var(--gold)"/><rect x="28" y="8" width="6" height="26" rx="1.5" style="fill:var(--gold)"/></svg></span>
+        <h3 style="margin:22px 0 0;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:26px;color:var(--text-dark)">Career / Business Read™</h3>
+        <p style="margin:10px 0 0;font-size:15px;line-height:1.55;color:var(--text-dark-soft);flex:1">Your natural professional strengths, direction, and blocks.</p>
+        <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-top:26px;padding-top:18px;border-top:1px solid rgba(42,38,32,0.1)">
+          <div style="display:flex;flex-direction:column;gap:3px"><span style="font-family:'Hanken Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.14em;font-size:10px;color:var(--text-dark-soft)">3 pages</span><span style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:30px;line-height:1;color:var(--gold-strong)">$49</span></div>
+          <span style="font-family:'Hanken Grotesk',sans-serif;font-size:14px;font-weight:600;color:var(--text-dark)">Learn more →</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== NOT SURE WHERE TO START ===================== -->
+<section style="background:var(--cream);padding-bottom:clamp(64px,10vh,110px)">
+  <div style="max-width:1000px;margin:0 auto;padding:0 clamp(22px,5vw,56px)">
+    <div data-reveal style="display:flex;flex-wrap:wrap;align-items:center;gap:clamp(22px,4vw,44px);padding:clamp(30px,4.5vw,48px);background:linear-gradient(135deg,rgba(216,180,120,0.14),rgba(216,180,120,0.05));border:1px solid rgba(216,180,120,0.4);border-radius:16px">
+      <div style="flex:1 1 320px">
+        <div style="font-family:'Hanken Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.18em;font-size:11px;font-weight:600;color:var(--gold-strong);margin-bottom:14px">Not sure where to start?</div>
+        <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(26px,4vw,38px);line-height:1.1;letter-spacing:-0.01em;color:var(--text-dark);text-wrap:balance">Begin with the Personal Read™.</h2>
+        <p style="margin:14px 0 0;font-size:15.5px;line-height:1.6;color:var(--text-dark-soft);max-width:480px">Every other Read builds on knowing your own blueprint first. Understand who you are at your core, and the rest comes into focus.</p>
+      </div>
+      <a href="TruKode-Intake.dc.html" style="display:inline-flex;align-items:center;justify-content:center;padding:16px 30px;background:var(--gold);color:#1b1710;font-family:'Hanken Grotesk',sans-serif;font-weight:600;font-size:15px;border-radius:999px;text-decoration:none;white-space:nowrap;transition:transform .3s ease,box-shadow .3s ease" style-hover="transform:translateY(-2px);box-shadow:0 12px 34px rgba(216,180,120,0.32)">Start here — $29</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== THE BOUNDARY ===================== -->
+<section style="background:var(--ink)">
+  <div style="max-width:840px;margin:0 auto;padding:clamp(72px,11vh,130px) clamp(22px,5vw,56px);text-align:center">
+    <div data-reveal style="font-family:'Hanken Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.26em;font-size:11.5px;font-weight:600;color:var(--gold);margin-bottom:24px">Clarity, Not Labels</div>
+    <p data-reveal style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(24px,4.2vw,40px);line-height:1.22;letter-spacing:-0.008em;color:var(--text-light);text-wrap:balance">Not therapy. Not a quiz. Not a quick fix. Not a box you're placed in. <span style="color:var(--gold)">A personal foundation — built from your own data.</span></p>
+  </div>
+</section>
+
+<!-- ===================== FAQ TEASER ===================== -->
+<section style="background:var(--cream)">
+  <div style="max-width:760px;margin:0 auto;padding:clamp(64px,10vh,110px) clamp(22px,5vw,56px);text-align:center">
+    <div data-reveal style="font-family:'Hanken Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.26em;font-size:11.5px;font-weight:600;color:var(--gold-strong);margin-bottom:20px">Questions?</div>
+    <h2 data-reveal style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(28px,4.8vw,46px);line-height:1.08;letter-spacing:-0.01em;color:var(--text-dark);text-wrap:balance">How it works, what we need, and how it's delivered.</h2>
+    <p data-reveal style="margin:18px auto 0;max-width:480px;font-size:clamp(15px,2vw,17px);line-height:1.65;color:var(--text-dark-soft)">Everything you might want to know before you begin — answered plainly.</p>
+    <a data-reveal href="TruKode-FAQ.dc.html" style="display:inline-flex;align-items:center;justify-content:center;margin-top:30px;padding:15px 30px;background:transparent;color:var(--text-dark);font-family:'Hanken Grotesk',sans-serif;font-weight:600;font-size:15px;border:1px solid rgba(42,38,32,0.25);border-radius:999px;text-decoration:none;transition:border-color .3s ease,color .3s ease" style-hover="border-color:var(--gold-strong);color:var(--gold-strong)">Visit the FAQ →</a>
+  </div>
+</section>
+
+<!-- ===================== FINAL CTA ===================== -->
+<section style="position:relative;overflow:hidden;background:var(--ink)">
+  <div style="position:absolute;bottom:-40%;left:50%;width:min(820px,150vw);height:min(820px,150vw);transform:translateX(-50%);background:radial-gradient(circle,rgba(216,180,120,0.18),rgba(216,180,120,0.05) 40%,transparent 64%);animation:tkGlow 10s ease-in-out infinite;pointer-events:none"></div>
+  <div style="position:relative;max-width:820px;margin:0 auto;padding:clamp(90px,15vh,170px) clamp(22px,5vw,56px);text-align:center">
+    <p data-reveal style="margin:0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(18px,2.6vw,22px);color:var(--gold)">You've just been decoded.</p>
+    <h2 data-reveal style="margin:18px 0 0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(34px,6.2vw,64px);line-height:1.05;letter-spacing:-0.012em;color:var(--text-light);text-wrap:balance">Choose your Read and begin.</h2>
+    <div data-reveal style="display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:40px">
+      <a href="TruKode-Product-Personal-Read.dc.html" style="display:inline-flex;align-items:center;justify-content:center;padding:17px 36px;background:var(--gold);color:#1b1710;font-family:'Hanken Grotesk',sans-serif;font-weight:600;font-size:16px;border-radius:999px;text-decoration:none;transition:transform .3s ease,box-shadow .3s ease" style-hover="transform:translateY(-2px);box-shadow:0 14px 38px rgba(216,180,120,0.34)">Discover Your Blueprint</a>
+      <span style="font-size:14px;color:var(--text-light-soft)">Most begin with the Personal Read™ — $29</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer style="background:var(--ink-deep);border-top:1px solid rgba(216,180,120,0.1)">
+  <div style="max-width:1160px;margin:0 auto;padding:clamp(56px,8vh,84px) clamp(22px,5vw,56px) 40px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:36px 28px">
+      <div style="grid-column:1 / -1;max-width:340px">
+        <a href="TruKode-Landing.dc.html" style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--text-light);text-decoration:none">TruKode<span style="color:var(--gold)">.</span></a>
+        <p style="margin:14px 0 0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;line-height:1.4;color:var(--text-light-soft)">You came into this world without a manual. Consider this yours.</p>
+      </div>
+      <div>
+        <div style="font-family:'Hanken Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.16em;font-size:11px;font-weight:600;color:var(--gold);margin-bottom:16px">The Reads</div>
+        <div style="display:flex;flex-direction:column;gap:11px"><a href="TruKode-Product-Personal-Read.dc.html" style="font-size:14px;color:var(--text-light-soft);text-decoration:none;transition:color .25s ease" style-hover="color:var(--gold)">Personal Read™</a><a href="TruKode-Product-Personal-Read.dc.html" style="font-size:14px;color:var(--text-light-soft);text-decoration:none;transition:color .25s ease" style-hover="color:var(--gold)">Compatibility Read™</a><a href="TruKode-Product-Personal-Read.dc.html" style="font-size:14px;color:var(--text-light-soft);text-decoration:none;transition:color .25s ease" style-hover="color:var(--gold)">Life Purpose Read™</a><a href="TruKode-Product-Personal-Read.dc.html" style="font-size:14px;color:var(--text-light-soft);text-decoration:none;transition:color .25s ease" style-hover="color:var(--gold)">Roadblock Read™</a><a href="TruKode-Product-Personal-Read.dc.html" style="font-size:14px;color:var(--text-light-soft);text-decoration:none;transition:color .25s ease" style-hover="color:var(--gold)">Career / Business Read™</a></div>
+      </div>
+      <div>
+        <div style="font-family:'Hanken Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.16em;font-size:11px;font-weight:600;color:var(--gold);margin-bottom:16px">Explore</div>
+        <div style="display:flex;flex-direction:column;gap:11px"><a href="TruKode-Landing.dc.html#how" style="font-size:14px;color:var(--text-light-soft);text-decoration:none;transition:color .25s ease" style-hover="color:var(--gold)">How it works</a><a href="TruKode-Landing.dc.html#who" style="font-size:14px;color:var(--text-light-soft);text-decoration:none;transition:color .25s ease" style-hover="color:var(--gold)">Who it's for</a><a href="TruKode-About.dc.html" style="font-size:14px;color:var(--text-light-soft);text-decoration:none;transition:color .25s ease" style-hover="color:var(--gold)">The Manifesto</a></div>
+      </div>
+      <div>
+        <div style="font-family:'Hanken Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.16em;font-size:11px;font-weight:600;color:var(--gold);margin-bottom:16px">Company</div>
+        <div style="display:flex;flex-direction:column;gap:11px"><a href="mailto:hello@trukode.com" style="font-size:14px;color:var(--text-light-soft);text-decoration:none;transition:color .25s ease" style-hover="color:var(--gold)">Contact</a><a href="TruKode-FAQ.dc.html" style="font-size:14px;color:var(--text-light-soft);text-decoration:none;transition:color .25s ease" style-hover="color:var(--gold)">FAQ</a></div>
+      </div>
+    </div>
+    <div style="margin-top:48px;padding-top:26px;border-top:1px solid rgba(216,180,120,0.1);display:flex;flex-wrap:wrap;gap:14px 28px;justify-content:space-between;align-items:center">
+      <span style="font-size:12.5px;color:var(--text-light-soft)">© 2026 TruKode · Human Decode™ · The Blueprint System™</span>
+      <span style="font-family:'Hanken Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.16em;font-size:10px;color:rgba(184,176,163,0.7)">Made for becoming fully human</span>
+    </div>
+    <p style="margin:22px 0 0;max-width:720px;font-size:12px;line-height:1.6;color:rgba(184,176,163,0.65)">TruKode offers tools for self-reflection and personal development. It is not therapy, medical or psychological diagnosis, or professional advice, and is not intended to diagnose, treat, or replace the care of a qualified professional.</p>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#d8b478&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;reveals&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  applyAccent() {
+    const a = this.props.accent;
+    if (a) document.documentElement.style.setProperty('--gold', a);
+  }
+  componentDidMount() {
+    this.applyAccent();
+    const els = Array.from(document.querySelectorAll('[data-reveal]'));
+    const show = el => { el.classList.add('tk-in'); };
+    if (this.props.reveals === false) { els.forEach(show); return; }
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { show(e.target); io.unobserve(e.target); } });
+      }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+      els.forEach(el => io.observe(el));
+      els.slice(0, 4).forEach((el, i) => setTimeout(() => show(el), 120 + i * 120));
+      this._io = io;
+    } else {
+      els.forEach(show);
+    }
+    this._fb = setTimeout(() => els.forEach(show), 2200);
+  }
+  componentDidUpdate() { this.applyAccent(); }
+  componentWillUnmount() { clearTimeout(this._fb); if (this._io) this._io.disconnect(); }
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>
