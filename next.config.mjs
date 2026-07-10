@@ -4,7 +4,7 @@ const nextConfig = {
     // Preserve old exported .dc.html deep links → new routes
     return [
       { source: "/TruKode-Landing.dc.html", destination: "/", permanent: true },
-      { source: "/TruKode-All-Reads.dc.html", destination: "/reads", permanent: true },
+      { source: "/TruKode-All-Reads.dc.html", destination: "/products", permanent: true },
       { source: "/TruKode-Product-Personal-Read.dc.html", destination: "/reads/personal-read", permanent: true },
       { source: "/TruKode-How-It-Works.dc.html", destination: "/how-it-works", permanent: true },
       { source: "/TruKode-About.dc.html", destination: "/about", permanent: true },
