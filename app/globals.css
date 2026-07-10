@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Design tokens — TruKode gold / ink palette
+   ============================================================ */
+:root {
+  --gold: #d8b478;
+  --gold-strong: color-mix(in oklab, #d8b478, #000 18%);
+  --ink: #15120e;
+  --ink-soft: #211c15;
+  --ink-deep: #100d09;
+  --cream: #f6f3ec;
+  --paper: #fffdf8;
+  --text-dark: #2a2620;
+  --text-dark-soft: #6e665a;
+  --text-light: #ece7df;
+  --text-light-soft: #b8b0a3;
+}
+
+/* Expose tokens + fonts to Tailwind's utility layer */
+@theme inline {
+  --color-gold: var(--gold);
+  --color-gold-strong: var(--gold-strong);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-deep: var(--ink-deep);
+  --color-cream: var(--cream);
+  --color-paper: var(--paper);
+  --color-dark: var(--text-dark);
+  --color-dark-soft: var(--text-dark-soft);
+  --color-light: var(--text-light);
+  --color-light-soft: var(--text-light-soft);
+
+  --font-sans: var(--font-hanken), system-ui, sans-serif;
+  --font-serif: var(--font-cormorant), Georgia, serif;
+
+  /* Shared keyframes */
+  --animate-glow: tkGlow 9s ease-in-out infinite;
+  --animate-bob: tkBob 2.4s ease-in-out infinite;
+  --animate-spin-slow: tkSpin 1.1s linear infinite;
+  --animate-pulse-soft: tkPulse 1.8s ease-in-out infinite;
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+  background: var(--ink);
+  font-family: var(--font-hanken), system-ui, sans-serif;
+  color: var(--text-dark);
+}
+::selection {
+  background: var(--gold);
+  color: #1b1710;
+}
+
+/* ============================================================
+   Scroll-reveal (replaces the old [data-reveal] + IntersectionObserver)
+   ============================================================ */
+.tk-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 1.1s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 1.1s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.tk-reveal.tk-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ============================================================
+   Keyframes
+   ============================================================ */
+@keyframes tkGlow {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.07); }
+}
+@keyframes tkBob {
+  0%, 100% { transform: translateY(0); opacity: 0.45; }
+  50% { transform: translateY(8px); opacity: 1; }
+}
+@keyframes tkNavFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes tkNavRise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes tkFwd {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes tkBack {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes tkSpin {
+  to { transform: rotate(360deg); }
+}
+@keyframes tkPulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.04); }
+}
