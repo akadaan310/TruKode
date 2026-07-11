@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
+import { MilestoneBlockOverlay } from "@/components/MilestoneBlockOverlay";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -30,7 +31,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${cormorant.variable} ${hanken.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <MilestoneBlockOverlay />
+      </body>
     </html>
   );
 }
